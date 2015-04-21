@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5 3D正方体旋转动画演示地址</title>
+<style>
+.space3d {
+  -webkit-perspective: 1000px;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  margin:200px;
+}
+._3dbox {
+  display: inline-block;
+  -webkit-transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateX(-15deg) rotateY(15deg);
+}
+._3dface {
+  overflow: hidden;
+  position: absolute;
+  border: 1px solid #888;
+  background: #FFF;
+  -webkit-box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
+  color: #333;
+  line-height: 250px;
+  opacity: 0.8;
+  width: 250px;
+  height: 250px;
+  background-size:100%;
+}
+._3dface--front {
+  -webkit-transform: translateZ(125px);
+  background:url(img/6.jpg) no-repeat center center;
+}
+._3dface--top {
+  -webkit-transform: rotateX(90deg) translateZ(125px);
+  background:url(img/1.jpg) no-repeat center center;
+}
+._3dface--bottom {
+  -webkit-transform: rotateX(-90deg) translateZ(125px);
+  background:url(img/2.jpg) no-repeat center center;
+}
+._3dface--left {
+  -webkit-transform: rotateY(-90deg) translateZ(125px);
+  background:url(img/3.jpg) no-repeat center center;
+}
+._3dface--right {
+  -webkit-transform: rotateY(90deg) translateZ(125px);
+  background:url(img/4.jpg) no-repeat center center;
+}
+._3dface--back {
+  -webkit-transform: rotateY(180deg) translateZ(125px);
+  background:url(img/5.jpg) no-repeat center center;
+}
+#radio-left:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(90deg);}
+#radio-right:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(-90deg);}
+#radio-back:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(180deg);}
+#radio-bottom:checked ~ .space3d ._3dbox { -webkit-transform: rotateX(90deg);}
+#radio-top:checked ~ .space3d ._3dbox { -webkit-transform: rotateX(-90deg);}
+</style>
+</head>
+<body>
+<input type="radio" checked id="radio-front" name="select-face"/>    
+<input type="radio" id="radio-left" name="select-face"/>
+<input type="radio" id="radio-right" name="select-face"/>
+<input type="radio" id="radio-top" name="select-face"/>
+<input type="radio" id="radio-bottom" name="select-face"/>
+<input type="radio" id="radio-back" name="select-face"/>
+<div class="space3d">
+    <div class="_3dbox">
+      <div class="_3dface _3dface--front"></div>
+      <div class="_3dface _3dface--top"></div>
+      <div class="_3dface _3dface--bottom"></div>
+      <div class="_3dface _3dface--left"></div>
+      <div class="_3dface _3dface--right"></div>
+      <div class="_3dface _3dface--back"></div>
+    </div>
+</div>
+</body>
+
+</html>
