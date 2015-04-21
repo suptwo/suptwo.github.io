@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=320,user-scalable=0,init-scale=1" />
+<title>无标题文档</title>
+<style>
+body{font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;color: #000000;font-size: 14px; font-family: 微软雅黑;
+	color: #fff;}
+body,div,ul,li,h1,input,section{margin:0;padding:0;}
+section{display:block;}/*html5*/
+input,h1{font-family: inherit;font-weight: normal;}
+input{margin:0px;padding:0px;outline:none;border:none; }
+input[type="text"]{margin:0px;padding:0px;}
+img{border:none;}
+ul,li{list-style: none;}
+.fl{ float:left;}
+.fr{ float:right;}
+/*清除浮动*/
+.clearfix:before, .clearfix:after { content:"";display: table;}
+.clearfix:after{clear:both;	overflow: hidden;}
+/*移动端*/
+html, body {-webkit-user-select: none;   user-select: none;-webkit-user-drag:none;}/* 禁止选中文本（如无文本选中需求，此为必选项） */
+body{-webkit-overflow-scrolling: touch;}
+*, ::after, ::before{-webkit-tap-highlight-color: rgba(0,0,0,0);}/*click会出现绑定点击区域闪一下*/
+input[type="text"],input[type="password"],input[type="button"],input[type="submit"],select{
+	-webkit-appearance:none;
+}/*去除input默认样式*/
+html, body, div, h1{-webkit-text-size-adjust:none;}/*阻止旋转屏幕时自动调整字体大小*/
+img {-webkit-touch-callout: none; }/* 禁止长按链接与图片弹出菜单 */
+img{max-width:100%;height:auto;}
+
+.box{  width:320px; margin:0 auto;margin-top:80px;}
+.log{ height:30px; width:30px;position:relative; margin-left:10px}
+.log span{ position:absolute; top:15px; left:32px; height:0; width:0; line-height:0; border:5px dashed transparent;border-top:5px solid #ccc;}
+.log ul{ position:absolute; top:35px; left:0; }
+.log li,.log h1{ height:30px; width:30px; background-size:100%; margin-bottom:3px;}
+.baidu{ background:url(img/baidulog.jpg) no-repeat center center;}
+.q360{ background:url(img/360log.jpg) no-repeat center center;}
+.putval{height:30px; margin-left:15px; position:relative;}
+.putval .txt1{ border:1px solid #dadada; line-height:30px; height:14px; padding:7px 3px; width:180px; margin-right:3px;}
+.searchBtn{line-height:30px; height:30px; text-align:center; width:68px; background:#06F; color:#fff;}
+
+.searchlist{ width:180px; position:absolute; left:0; top:35px;}
+.searchlist li{ height:30px; line-height:30px; border-bottom:1px dashed #000; text-indent:10px; color:#222;white-space: nowrap;}
+</style>
+<script>
+window.onload=function(){
+	var oLog=document.querySelector('.log');
+	var iNow=-1;
+	var oldValue='';
+	oLog.bClick=true;
+	var oT=document.querySelector('.txt1');
+	var oUl=document.querySelector('.searchlist');
+	var oBtn=document.querySelector('.searchBtn');
+	oUl.dis=false;
+	document.addEventListener('click',function(ev){
+		var oEvent=ev || event;
+		var srcEle=oEvent.srcElement||oEvent.targte;
+		if(srcEle==this){
+			oUl.style.display='none';
+			oLog.children[2].style.display='none';
+		}
+	},false)
+	oT.onkeyup=function(ev){
+		if(oUl.dis){
+			oUl.style.display='block';
+		}
+		var oEvent=ev || event;
+		//回车搜索
+		if(oEvent.keyCode==13){
+			if(oLog.children[1].className=='q360'){
+				window.open('http://www.haosou.com/s?q='+oT.value);
+				oT.value='';
+			}else{
+				window.open('http://www.baidu.com/s?wd='+oT.value);
+				oT.value='';
+			}
+		}
+		var url='';
+		var json={};
+		var cbName='';
+		if(oLog.children[1].className=='q360'){
+			url='http://sug.so.360.cn/suggest';
+			cbName='callback';
+			json={
+				'word':oT.value,
+			}
+			}else{
+				cbName:'cb';
+				url='http://suggestion.baidu.com/su';
+				json={
+					wd:oT.value,
+				}
+			}
+		jsonp({
+			url:url,
+			data:json,
+			cbName:cbName,
+			success:function(json){
+				var arr=json.s;
+				oUl.innerHTML='';
+				for(var i=0; i<arr.length; i++){
+					var oLi=document.createElement('li');
+					oLi.innerHTML=arr[i];
+					oUl.appendChild(oLi);
+					//加事件
+					(function(index){
+						oLi.addEventListener('click',function(ev){
+							oT.value=oUl.children[index].innerHTML;
+							oUl.style.display='none';
+							oUl.innerHTML='';
+							oUl.dis=true;
+							var oEvent=ev||event;
+							oEvent.cancelBubble=true;
+						},false);
+					})(i);
+				}
+			}	
+		});
+		oldValue=oT.value;
+	};
+	//触发搜索事件
+	oBtn.addEventListener('click',function(ev){
+		var oEvent=ev||event;
+		if(oLog.children[1].className=='q360'){
+			window.open('http://www.haosou.com/s?q='+oT.value);
+		}else{
+			window.open('http://www.baidu.com/s?wd='+oT.value);
+		}	
+		oEvent.cancelBubble=true;
+	},false);
+	//搜索引擎切换
+	oLog.children[1].addEventListener('click',function(ev){
+		var _this=this;
+		var oEvent=ev||event;
+		if(oLog.bClick){
+			oLog.children[2].style.display='block';
+			for(var i=0;i<oLog.children[2].children.length;i++){
+				oLog.children[2].children[i].onclick=function(ev){
+					var oEvent=ev||event;
+					oLog.bClick=true;
+					oLog.children[2].style.display='none';
+					_this.className=this.className;
+					this.onclick=null;
+					oEvent.cancelBubble=true;
+				};
+			}
+		}else{
+			oLog.children[2].style.display='none';
+		}
+		oLog.bClick=!oLog.bClick;
+		oEvent.cancelBubble=true;
+	},false);
+	
+};
+//jsonp函数
+function jsonp(json){
+	json=json || {};
+	if(!json.url)return;
+	json.data=json.data || {};
+	json.cbName=json.cbName || 'cb';
+	var fnName='jsonp'+Math.random();
+	fnName=fnName.replace('.','');	
+	window[fnName]=function(data){
+		json.success && json.success(data);
+		oHead.removeChild(oS);
+	};
+	json.data[json.cbName]=fnName;
+	
+	var arr=[];
+	for(var name in json.data){
+		arr.push(name+'='+json.data[name]);
+	}
+	var oS=document.createElement('script');
+	oS.src=json.url+'?'+arr.join('&');
+	var oHead=document.getElementsByTagName('head')[0];
+	oHead.appendChild(oS);
+}
+</script>
+</head>
+
+<body>
+<section class="box clearfix">
+	<!--搜素切换-->
+    <section class="log fl">
+    	<span></span>
+    	<h1 class="baidu"></h1>
+        <ul style="display:none">
+        	<li class="baidu"></li>
+            <li class="q360"></li>
+        </ul>
+    </section>
+    <!--输入框-->
+	<section class="putval fl">
+    	<input type="text" class="txt1" placeholder="请在这输入你要搜素的内容"/>
+    	<input type="botton" class="searchBtn" value="搜素"/>
+        <ul class="searchlist">
+   		</ul>
+    </section>
+</section>
+</body>
+</html>

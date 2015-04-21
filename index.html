@@ -1,91 +1,34 @@
-﻿
-<!doctype html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 3D正方体旋转动画演示</title>
 <style>
-* { margin:0; padding:0; }
-div { position:relative; width:300px; height:300px; border:1px solid #000; margin:100px auto; border-radius:50%; }
-span { position:absolute; top:0; left:50%; margin-left:-25px; margin-top:-25px; width:50px; height:50px; background:red; border-radius:50%; }
-</style>
-<script>
-function d2a(n) // 角度换弧度
-{
-	return n*Math.PI/180;
+html{background:-webkit-radial-gradient(center,ellipse,#430d6d 0%,#000000 100%);height:100%;-webkit-perspective:2000px;}
+.cube{-webkit-animation:10s spin linear infinite;height:180px;width:180px;position:absolute;left:8%;top:10%;-webkit-transform-style:preserve-3d;text-align:center;color:#fff;}
+.cube div{background-color:rgba(0,0,0,0.5);border:2px solid rgba(54,226,248,0.5);-webkit-box-shadow:0 0 5em rgba(0,128,0,0.4);height:180px;width:180px;position:absolute;}
+.back{-webkit-transform:rotateX(180deg) translateZ(90px);}
+.bottom{-webkit-transform:rotateX(-90deg) translateZ(90px);}
+.front{-webkit-transform:rotateY(0deg) translateZ(90px);}
+.left{-webkit-transform:rotateY(-90deg) translateZ(90px);}
+.right{-webkit-transform:rotateY(90deg) translateZ(90px);}
+.top{-webkit-transform:rotateX(90deg) translateZ(90px);}
+@-webkit-keyframes spin{
+	from{-webkit-transform:rotateX(0) rotateY(0deg);}
+	to{-webkit-transform:rotateX(360deg) rotateY(360deg);}
 }
-
-window.onload=function (){
-	var oDiv=document.getElementById('div1');
-	var R=oDiv.offsetWidth/2;
-	var total=10;
-	
-	for (var i=0; i<total; i++)
-	{
-		var oSpan=document.createElement('span');	
-		oDiv.appendChild(oSpan);
-	}
-	
-	var aSpan=oDiv.children;
-	var bFlag=true;
-	document.onclick=function (){
-		if (bFlag)
-		{
-			for (var i=0; i<aSpan.length; i++)
-			{
-				move(aSpan[i], i*360/total);
-			}
-		}
-		else
-		{
-			for (var i=0; i<aSpan.length; i++)
-			{
-				move(aSpan[i], 0);
-			}
-		}
-		
-		bFlag= !bFlag;
-	};
-	
-	
-	function move(obj, iTarget) // 角度
-	{
-		obj.a= obj.a || 0;
-		
-		var count=Math.round(1000/30);
-		var n=0;
-		var start=obj.a; // 角度
-		var dis=iTarget-start;
-		
-		clearInterval(obj.timer);
-		obj.timer=setInterval(function (){
-			n++;
-			
-			// 设置样式
-			var a=d2a(start+dis*n/count);
-			
-			var left=R+Math.sin(a)*R;
-			var top=R-Math.cos(a)*R;
-			
-			obj.style.left=left+'px';
-			obj.style.top=top+'px';
-			obj.a=start+dis*n/count;
-			
-			if (n == count)
-			{
-				clearInterval(obj.timer);
-			}
-		}, 30);
-	}
-	
-	
-	
-};
-</script>
+.sousuo{ position:absolute; right:0; bottom:10px; color:#0FF;}
+</style>
 </head>
-
 <body>
-	<div id="div1">
-	</div>
+<div class="cube">
+  <div class="back">正前</div>
+  <div class="bottom">下面</div>
+  <div class="front">前面</div>
+  <div class="left">左面</div>
+  <div class="right">右面</div>
+  <div class="top">顶部</div>
+</div>
+<a href="js/sousuo.html" class="sousuo">搜索</a>
 </body>
 </html>
