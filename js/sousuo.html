@@ -43,8 +43,8 @@ img{max-width:100%;height:auto;}
 
 .searchlist{ width:180px; position:absolute; left:0; top:35px;}
 .searchlist li{ height:30px; line-height:30px; border-bottom:1px dashed #000; text-indent:10px; color:#222;white-space: nowrap;}
-iframe{ position:absolute; top:0; left:0; z-index:98}
-iframe .jsclose{ position:absolute; top:10px; right:10px; background:url(../img/close.png); height:24px; width:24px;z-index:99}
+iframe{ position:absolute; top:0; left:0; z-index:98; width:320px; height:680px;}
+.jsclose{ position:absolute; top:3px; right:10px; background:url(../img/close.png); height:24px; width:24px;z-index:99;display:none;}
 </style>
 <script>
 window.onload=function(){
@@ -56,6 +56,7 @@ window.onload=function(){
 	var oUl=document.querySelector('.searchlist');
 	var oBtn=document.querySelector('.searchBtn');
 	var oIframe=document.querySelector('iframe');
+	var oA=document.querySelector('.jsclose');
 	oUl.dis=false;
 	document.addEventListener('click',function(ev){
 		var oEvent=ev || event;
@@ -68,17 +69,6 @@ window.onload=function(){
 	oT.onkeyup=function(ev){
 		if(oUl.dis){
 			oUl.style.display='block';
-		}
-		var oEvent=ev || event;
-		//回车搜索
-		if(oEvent.keyCode==13){
-			oIframe.style.display='block';
-			if(oLog.children[1].className=='q360'){
-				oIframe.src='http://www.haosou.com/s?q='+oT.value;
-			}else{
-				oIframe.src='http://www.baidu.com/s?wd='+oT.value;
-			}
-			oT.value='';
 		}
 		var url='';
 		var json={};
@@ -123,9 +113,20 @@ window.onload=function(){
 		});
 		oldValue=oT.value;
 	};
+	//关闭按钮
+	oA.addEventListener('click',function(ev){
+		var oEvent=ev||event;
+		oIframe.style.display='none';
+		oA.style.display='none';
+			
+		oEvent.cancelBubble=true;
+	},false);
+	
 	//触发搜索事件
 	oBtn.addEventListener('click',function(ev){
 		var oEvent=ev||event;
+		oIframe.style.display='block';
+		oA.style.display='block';
 		if(oLog.children[1].className=='q360'){
 			oIframe.src='http://www.haosou.com/s?q='+oT.value;
 		}else{
@@ -182,7 +183,7 @@ function jsonp(json){
 }
 </script>
 </head>
-
+ 
 <body>
 <section class="box clearfix">
 	<!--搜素切换-->
@@ -202,8 +203,7 @@ function jsonp(json){
    		</ul>
     </section>
 </section>
-<iframe src="http://suptwo.github.io"; width="100%" height="100%" scrolling="auto" frameborder="0" style="display:none;">
-<a href="javascript:;"></a>
-</iframe> 
+<iframe width="320" height="100%" frameborder="0" style="display:none;"></iframe> 
+<a href="javascript:;" class="jsclose"></a>
 </body>
 </html>
