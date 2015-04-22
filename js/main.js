@@ -196,16 +196,14 @@ document.addEventListener('DOMContentLoaded',function(){
 								//添加APP js文件
 								var oScr = document.createElement('script');
 								oScr.src = 'js/'+target.id+'.js';
-								oAppBox.addEventListener('load',function(){
-									oHead.appendChild(oScr);
-									//关闭事件
-									addClose(oScr,oLink);
-								},false);
+								oHead.appendChild(oScr);
 								//添加APP css文件
 								var oLink = document.createElement('link');
 								oLink.rel = 'stylesheet';
 								oLink.href = 'css/'+target.id+'.css'
 								oHead.appendChild(oLink);
+								//关闭事件
+								addClose(oScr,oLink);
 							},500);
 						});
 					},100);
