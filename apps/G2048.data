@@ -1,0 +1,19 @@
+<div class="game">
+	<div class="num_top">
+		<div class="logo">2048</div>
+		<div class="fs">
+			<div class="con">
+				<div class="labe">SCORE</div>
+				<div class="labe_fs" id="score">0</div>
+			</div>
+		</div>
+	</div>
+	<div class="num_con" id="con">
+		<ul class="bg">
+			<li></li><li></li><li></li><li></li>
+			<li></li><li></li><li></li><li></li>
+			<li></li><li></li><li></li><li></li>
+			<li></li><li></li><li></li><li></li>
+		</ul>
+	</div>
+</div>

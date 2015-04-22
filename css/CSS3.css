@@ -1,71 +1,60 @@
-.appbox .box {
-    width: 133px;
-    height: 272px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+input{margin-top:30px;}
+.space3d {
+  perspective: 1000px;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  margin:200px;
 }
-.appbox .list {
-    position: absolute;
-}.appbox 
-
-.viewport-flip {
-    -webkit-perspective: 1000;
-    perspective: 1000;
+._3dbox {
+  display: inline-block;
+  transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg) rotateY(15deg);
 }
-.appbox .flip {
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translateX(0); /* Needed to work around an iOS 3.1 bug that causes listview thumbs to disappear when -webkit-visibility:hidden is used. */
-    backface-visibility: hidden;
-    transform: translateX(0);
+._3dface {
+  overflow: hidden;
+  position: absolute;
+  border: 1px solid #888;
+  background: #FFF;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
+  color: #333;
+  line-height: 250px;
+  opacity: 0.8;
+  width: 250px;
+  height: 250px;
+  background-size:100%;
 }
-.appbox .flip.out {
-    -webkit-transform: rotateY(-90deg) scale(.9);
-    -webkit-animation-name: flipouttoleft;
-    -webkit-animation-duration: 175ms;
-    transform: rotateY(-90deg) scale(.9);
-    animation-name: flipouttoleft;
-    animation-duration: 175ms;
+._3dface--front {
+  transform: translateZ(125px);
+  background:url(img/66.jpg) no-repeat center center;
 }
-.appbox .flip.in {
-    -webkit-animation-name: flipintoright;
-    -webkit-animation-duration: 225ms;
-    animation-name: flipintoright;
-    animation-duration: 225ms;
+._3dface--top {
+  transform: rotateX(90deg) translateZ(125px);
+  background:url(img/111.jpg) no-repeat center center;
 }
-
-@-webkit-keyframes flipouttoleft {
-    from { -webkit-transform: rotateY(0); }
-    to { -webkit-transform: rotateY(-90deg) scale(.9); }
+._3dface--bottom {
+  transform: rotateX(-90deg) translateZ(125px);
+  background:url(img/22.jpg) no-repeat center center;
 }
-
-@keyframes flipouttoleft {
-    from { transform: rotateY(0); }
-    to { transform: rotateY(-90deg) scale(.9); }
+._3dface--left {
+  transform: rotateY(-90deg) translateZ(125px);
+  background:url(img/33.jpg) no-repeat center center;
 }
-@-webkit-keyframes flipouttoright {
-    from { -webkit-transform: rotateY(0) ; }
-    to { -webkit-transform: rotateY(90deg) scale(.9); }
+._3dface--right {
+  transform: rotateY(90deg) translateZ(125px);
+  background:url(img/44.jpg) no-repeat center center;
 }
-@keyframes flipouttoright {
-    from { transform: rotateY(0); }
-    to { transform: rotateY(90deg) scale(.9); }
+._3dface--back {
+  transform: rotateY(180deg) translateZ(125px);
+  background:url(img/55.jpg) no-repeat center center;
 }
-@-webkit-keyframes flipintoleft {
-    from { -webkit-transform: rotateY(-90deg) scale(.9); }
-    to { -webkit-transform: rotateY(0); }
-}
-@keyframes flipintoleft {
-    from { transform: rotateY(-90deg) scale(.9); }
-    to { transform: rotateY(0); }
-}
-@-webkit-keyframes flipintoright {
-    from { -webkit-transform: rotateY(90deg) scale(.9); }
-    to { -webkit-transform: rotateY(0); }
-}
-@keyframes flipintoright {
-    from { transform: rotateY(90deg) scale(.9); }
-    to { transform: rotateY(0); }
-}
+#radio-left:checked ~ .space3d ._3dbox { transform: rotateY(90deg);}
+#radio-right:checked ~ .space3d ._3dbox { transform: rotateY(-90deg);}
+#radio-back:checked ~ .space3d ._3dbox { transform: rotateY(180deg);}
+#radio-bottom:checked ~ .space3d ._3dbox { transform: rotateX(90deg);}
+#radio-top:checked ~ .space3d ._3dbox { transform: rotateX(-90deg);}

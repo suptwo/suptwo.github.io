@@ -1,5 +1,16 @@
-<div id="box" class="box viewport-flip" title="点击翻面">
-    <a href="javascript:;" class="list flip out"><img src="../img/iphone_front.png" alt="纸牌正面" /></a>
-    <a href="javascript:;" class="list flip"><img src="../img/iphone_back.png" alt="纸牌背面" /></a>
+<input type="radio" checked id="radio-front" name="select-face"/>    
+<input type="radio" id="radio-left" name="select-face"/>
+<input type="radio" id="radio-right" name="select-face"/>
+<input type="radio" id="radio-top" name="select-face"/>
+<input type="radio" id="radio-bottom" name="select-face"/>
+<input type="radio" id="radio-back" name="select-face"/>
+<div class="space3d">
+    <div class="_3dbox">
+      <div class="_3dface _3dface--front"></div>
+      <div class="_3dface _3dface--top"></div>
+      <div class="_3dface _3dface--bottom"></div>
+      <div class="_3dface _3dface--left"></div>
+      <div class="_3dface _3dface--right"></div>
+      <div class="_3dface _3dface--back"></div>
+    </div>
 </div>
-<div class="js-close" style="width: 50px; height: 50px; margin: 20px auto; border-radius: 50%; background: #0ac;"></div> 

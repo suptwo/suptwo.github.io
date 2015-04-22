@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded',function(){
 				{
 					name: 'Http',
 					img: 'img/http.png'
+				},
+				{
+					name: 'G2048',
+					img: 'img/G2048.png'
 				}
 			];
 

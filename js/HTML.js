@@ -1,38 +1,40 @@
-//顶部焦点图
-(function (){
-	var oUl=document.querySelector('#appbox .slider ul');
-	var aLi=oUl.children;
-	var aBtn=document.querySelectorAll('#appbox .slider ol li');
-	var now=0;
+(function(){
+	var arr=['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
 	
-	setInterval(function (){
-		now++;
-		if(now==aLi.length)now=0;
-		tab();
-	}, 2000);
+	var oDiv=document.getElementById('div1');
+	var oHour=oDiv.getElementsByClassName('hour')[0];
+	var oMin=oDiv.getElementsByClassName('min')[0];
+	var oSec=oDiv.getElementsByClassName('sec')[0];
 	
-	function tab(){
-		for(var i=0;i<aBtn.length;i++){
-			aBtn[i].className='';
-		}
-		aBtn[now].className='active';
-		oUl.style.WebkitTransform='translateX(-'+now*aLi[0].offsetWidth+'px)';
+	//走
+	function tick()
+	{
+		var oDate=new Date();
+		
+		oHour.style.transform='rotate('+30*(oDate.getHours()+oDate.getMinutes()/60)+'deg)';
+		oMin.style.transform='rotate('+6*(oDate.getMinutes()+oDate.getSeconds()/60)+'deg)';
+		oSec.style.transform='rotate('+6*oDate.getSeconds()+'deg)';
 	}
-})();
-
-//点击搜索
-(function (){
-	var oBtn=document.getElementById('search_btn');
-	var oDiv=document.getElementById('search_dialog');
-	var oBtnClose=oDiv.querySelector('#appbox .close');
-	var oPage=document.querySelector('#appbox .page');
+	setInterval(tick, 1000);
+	tick();
 	
-	oBtn.onclick=function (){
-		oPage.style.display='none';
-		oDiv.style.display='block';
-	};
-	oBtnClose.onclick=function (){
-		oPage.style.display='block';
-		oDiv.style.display='none';
-	};
+	//生成刻度
+	for(var i=0;i<60;i++)
+	{
+		var oS=document.createElement('span');
+		
+		if(i%5)
+		{
+			oS.className='scaler';
+		}
+		else
+		{
+			oS.className='big_scaler';
+			oS.innerHTML='<em>'+arr[i/5]+'<\/em>';
+			oS.children[0].style.transform='rotate('+-6*i+'deg)';
+		}
+		
+		oS.style.transform='rotate('+6*i+'deg)';
+		oDiv.appendChild(oS);
+	}
 })();
