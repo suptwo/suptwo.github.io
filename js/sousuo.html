@@ -93,7 +93,7 @@ window.onload=function(){
 				oUl.addEventListener('touchstart',addTouch,false);
 				oUl.clickFn=function(ev){
 					var oSrc=ev.srcElement||ev.target;
-					if(oSrc.tagName=='li'){
+					if(oSrc.tagName=='LI'){
 						oT.value=oSrc.innerHTML;
 						oUl.style.display='none';
 						oUl.innerHTML='';
@@ -189,7 +189,6 @@ function addTouch(ev){
 		if(disTime>=600){
 			if(_this.bPress){
 				_this.pressFn && _this.pressFn(ev);
-				console.log('长按');
 			}
 			clearInterval(timer);
 		}
@@ -221,27 +220,22 @@ function addTouch(ev){
 				case 0:
 					//点击
 					_this.clickFn && _this.clickFn(ev);
-					console.log("点击");
 					break;
 				case 1:
 					//向下快滑
 					_this.downFn && _this.downFn(ev);
-					console.log("向下");
 					break;
 				case 2:
 					//向上快滑
 					_this.upFn && _this.upFn(ev);
-					console.log("向上");
 					break;
 				case 3:
 					//向左快滑
 					_this.leftFn && _this.leftFn(ev);
-					console.log("向左");
 					break;
 				case 4:
 					//向左快滑
 					_this.rightFn && _this.rightFn(ev);
-					console.log("向右");
 					break;
 				default:
 			} 
