@@ -1,7 +1,7 @@
 (function(){
 	var arr=['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
 	
-	var oDiv=document.getElementById('div1');
+	var oDiv=document.getElementById('div111');
 	var oHour=oDiv.getElementsByClassName('hour')[0];
 	var oMin=oDiv.getElementsByClassName('min')[0];
 	var oSec=oDiv.getElementsByClassName('sec')[0];
