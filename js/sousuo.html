@@ -58,14 +58,15 @@ window.onload=function(){
 	var oA=document.querySelector('.jsclose');
 	oUl.dis=false;
 	oIframe.style.height=window.innerHeight+'px';
-	document.addEventListener('click',function(ev){
-		var oEvent=ev || event;
-		var srcEle=oEvent.srcElement||oEvent.targte;
-		if(srcEle==this){
-			oUl.style.display='none';
-			oLog.children[2].style.display='none';
-		}
-	},false)
+	document.addEventListener('touchstart',addTouch,false);
+	document.leftFn=function(ev){
+		ev.preventDefault();
+		return false;
+	};
+	document.rightFn=function(ev){
+		ev.preventDefault();
+		return false;
+	};
 	oT.focus();
 	oT.onkeyup=function(ev){
 		if(oUl.dis){
@@ -134,13 +135,13 @@ window.onload=function(){
 		}	
 	}
 	//搜索引擎切换
-	oLog.children[1].addEventListener('click',addTouch,false);
+	oLog.children[1].addEventListener('touchstart',addTouch,false);
 	oLog.children[1].clickFn=function(){
 		var _this=this;
 		if(oLog.bClick){
 			oLog.children[2].style.display='block';
 			for(var i=0;i<oLog.children[2].children.length;i++){
-				oLog.children[2].children[i].addEventListener('click',addTouch,false);
+				oLog.children[2].children[i].addEventListener('touchstart',addTouch,false);
 				oLog.children[2].children[i].clickFn=function(){
 					oLog.bClick=true;
 					oLog.children[2].style.display='none';
