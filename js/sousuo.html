@@ -58,15 +58,6 @@ window.onload=function(){
 	var oA=document.querySelector('.jsclose');
 	oUl.dis=false;
 	oIframe.style.height=window.innerHeight+'px';
-	document.addEventListener('touchstart',addTouch,false);
-	document.leftFn=function(ev){
-		ev.preventDefault();
-		return false;
-	};
-	document.rightFn=function(ev){
-		ev.preventDefault();
-		return false;
-	};
 	oT.focus();
 	oT.onkeyup=function(ev){
 		if(oUl.dis){
