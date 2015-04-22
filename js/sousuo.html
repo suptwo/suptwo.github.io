@@ -48,8 +48,6 @@ img{max-width:100%;height:auto;}
 <script>
 window.onload=function(){
 	var oLog=document.querySelector('.log');
-	var iNow=-1;
-	var oldValue='';
 	oLog.bClick=true;
 	var oT=document.querySelector('.txt1');
 	var oUl=document.querySelector('.searchlist');
@@ -89,19 +87,9 @@ window.onload=function(){
 				for(var i=0; i<arr.length; i++){
 					var oLi=document.createElement('li');
 					oLi.innerHTML=arr[i];
-					oUl.appendChild(oLi);
-					//加事件
-					(function(index){
-						oLi.addEventListener('touchstart',addTouch,false);
-						oLi.clickFn=function(){
-							oT.value=oUl.children[index].innerHTML;
-							oUl.style.display='none';
-							oUl.innerHTML='';
-							oUl.dis=true;
-							var oEvent=ev||event;
-						}
-					})(i);
+					oUl.appendChild(oLi);;
 				}
+				//加事件
 				oUl.addEventListener('touchstart',addTouch,false);
 				oUl.clickFn=function(ev){
 					var oSrc=ev.srcElement||ev.target;
@@ -110,11 +98,11 @@ window.onload=function(){
 						oUl.style.display='none';
 						oUl.innerHTML='';
 						oUl.dis=true;
+						oUl.clickFn=null;
 					}
 				}
 			}	
 		});
-		oldValue=oT.value;
 	};
 	//关闭按钮
 	oA.addEventListener('touchstart',addTouch,false);
