@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=320,user-scalable=0,init-scale=1" />
 <title>HTML5 3D正方体旋转动画演示地址</title>
 <style>
-body{ height:500px; width:300px ; margin:0px auto;}
+body{ height:500px; width:320px ; margin:0px auto;}
 body *{ float:left;}
 .space3d {
   -webkit-perspective: 1000px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   text-align: center;
-  margin:60px auto;
+  margin-top:60px;
+  margin-left:50px;
   float:left;
   display:inline-block;
 }
@@ -35,32 +36,32 @@ body *{ float:left;}
   color: #333;
   line-height: 250px;
   opacity: 0.8;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   background-size:100%;
 }
 ._3dface--front {
-  -webkit-transform: translateZ(125px);
+  -webkit-transform: translateZ(100px);
   background:url(img/6.jpg) no-repeat center center;
 }
 ._3dface--top {
-  -webkit-transform: rotateX(90deg) translateZ(125px);
+  -webkit-transform: rotateX(90deg) translateZ(100px);
   background:url(img/1.jpg) no-repeat center center;
 }
 ._3dface--bottom {
-  -webkit-transform: rotateX(-90deg) translateZ(125px);
+  -webkit-transform: rotateX(-90deg) translateZ(100px);
   background:url(img/2.jpg) no-repeat center center;
 }
 ._3dface--left {
-  -webkit-transform: rotateY(-90deg) translateZ(125px);
+  -webkit-transform: rotateY(-90deg) translateZ(100px);
   background:url(img/3.jpg) no-repeat center center;
 }
 ._3dface--right {
-  -webkit-transform: rotateY(90deg) translateZ(125px);
+  -webkit-transform: rotateY(90deg) translateZ(100px);
   background:url(img/4.jpg) no-repeat center center;
 }
 ._3dface--back {
-  -webkit-transform: rotateY(180deg) translateZ(125px);
+  -webkit-transform: rotateY(180deg) translateZ(100px);
   background:url(img/5.jpg) no-repeat center center;
 }
 #radio-left:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(90deg);}
