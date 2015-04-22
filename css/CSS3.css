@@ -31,27 +31,27 @@ input{margin-top:30px;}
 }
 ._3dface--front {
   transform: translateZ(125px);
-  background:url(img/66.jpg) no-repeat center center;
+  background:url(../img/66.jpg) no-repeat center center;
 }
 ._3dface--top {
   transform: rotateX(90deg) translateZ(125px);
-  background:url(img/111.jpg) no-repeat center center;
+  background:url(../img/111.jpg) no-repeat center center;
 }
 ._3dface--bottom {
   transform: rotateX(-90deg) translateZ(125px);
-  background:url(img/22.jpg) no-repeat center center;
+  background:url(../img/22.jpg) no-repeat center center;
 }
 ._3dface--left {
   transform: rotateY(-90deg) translateZ(125px);
-  background:url(img/33.jpg) no-repeat center center;
+  background:url(../img/33.jpg) no-repeat center center;
 }
 ._3dface--right {
   transform: rotateY(90deg) translateZ(125px);
-  background:url(img/44.jpg) no-repeat center center;
+  background:url(../img/44.jpg) no-repeat center center;
 }
 ._3dface--back {
   transform: rotateY(180deg) translateZ(125px);
-  background:url(img/55.jpg) no-repeat center center;
+  background:url(../img/55.jpg) no-repeat center center;
 }
 #radio-left:checked ~ .space3d ._3dbox { transform: rotateY(90deg);}
 #radio-right:checked ~ .space3d ._3dbox { transform: rotateY(-90deg);}
