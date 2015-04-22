@@ -114,14 +114,16 @@ window.onload=function(){
 		oldValue=oT.value;
 	};
 	//关闭按钮
-	oA.addEventListener('click',function(){
-		var oEvent=ev||event;
+	oA.addEventListener('touchstart',addTouch,false);
+	oA.clickFn=function(){
+		this.style.display='none';
 		oIframe.style.display='none';
 		oLog.parentNode.style.display='block';
-	},false);
+	}
 	
 	//触发搜索事件
-	oBtn.addEventListener('click',function(ev){
+	oBtn.addEventListener('touchstart',addTouch,false);
+	oBtn.clickFn=function(ev){
 		oIframe.style.display='block';
 		oLog.parentNode.style.display='none';
 		oA.style.display='block';
@@ -130,27 +132,27 @@ window.onload=function(){
 		}else{
 			oIframe.src='http://www.baidu.com/s?wd='+oT.value;
 		}	
-	},false);
+	}
 	//搜索引擎切换
-	oLog.children[1].addEventListener('click',function(){
+	oLog.children[1].addEventListener('click',addTouch,false);
+	oLog.children[1].clickFn=function(){
 		var _this=this;
 		if(oLog.bClick){
 			oLog.children[2].style.display='block';
 			for(var i=0;i<oLog.children[2].children.length;i++){
-				oLog.children[2].children[i].onclick=function(){
-					var oEvent=ev||event;
+				oLog.children[2].children[i].addEventListener('click',addTouch,false);
+				oLog.children[2].children[i].clickFn=function(){
 					oLog.bClick=true;
 					oLog.children[2].style.display='none';
 					_this.className=this.className;
-					this.onclick=null;
+					this.clickFn=null;
 				};
 			}
 		}else{
 			oLog.children[2].style.display='none';
 		}
 		oLog.bClick=!oLog.bClick;
-	},false);
-	
+	}
 };
 //jsonp函数
 function jsonp(json){
@@ -175,6 +177,123 @@ function jsonp(json){
 	var oHead=document.getElementsByTagName('head')[0];
 	oHead.appendChild(oS);
 }
+function addTouch(ev){
+	var _this = this;
+	//移动距离
+	var startX = ev.touches[0].pageX;
+	var startY = ev.touches[0].pageY;
+	var disX = 0;
+	var disY = 0;
+	//触摸时间
+	var startTime = new Date()*1;
+	var endTime = 0;
+	var disTime = 0;
+	//设置方向
+	var direction = 0;
+	//判断长按
+	_this.bPress = true;
+	var timer = setInterval(function(){
+		endTime = new Date()*1;
+		disTime = endTime - startTime;
+		if(disTime>=600){
+			if(_this.bPress){
+				_this.pressFn && _this.pressFn(ev);
+				console.log('长按');
+			}
+			clearInterval(timer);
+		}
+	},10); //会有很小的几率出现不是点击，也不是长按
+	_this.addEventListener('touchmove',move,false);
+	_this.addEventListener('touchend',end,false);
+	function move(ev){
+		//获取时间差
+		endTime = new Date()*1;
+		disTime = endTime - startTime;
+		//获取空间差
+		disX = ev.touches[0].pageX - startX;
+		disY = ev.touches[0].pageY - startY;
+		//移动时执行函数
+		_this.moveFn && _this.moveFn(ev,disX,disY);
+		//判断长按
+		if(Math.abs(disX) > 2 && Math.abs(disY) > 2){
+			_this.bPress = false;
+		}
+		ev.preventDefault();
+	}
+	function end(ev){
+		endTime = new Date()*1;
+		disTime = endTime - startTime;
+		direction = getDirection(disX,disY);
+		if(disTime < 600){ 
+			//获取方向 对应事件
+			switch (direction) {
+				case 0:
+					//点击
+					_this.clickFn && _this.clickFn(ev);
+					console.log("点击");
+					break;
+				case 1:
+					//向下快滑
+					_this.downFn && _this.downFn(ev);
+					console.log("向下");
+					break;
+				case 2:
+					//向上快滑
+					_this.upFn && _this.upFn(ev);
+					console.log("向上");
+					break;
+				case 3:
+					//向左快滑
+					_this.leftFn && _this.leftFn(ev);
+					console.log("向左");
+					break;
+				case 4:
+					//向左快滑
+					_this.rightFn && _this.rightFn(ev);
+					console.log("向右");
+					break;
+				default:
+			} 
+		}else{
+			_this.slowFn && _this.slowFn(ev,disX,disY);
+		}
+		//事件完成
+		_this.completeFn && _this.completeFn(ev,disX,disY);
+		//移除事件
+		_this.removeEventListener('touchmove',move,false);
+		_this.removeEventListener('touchend',end,false);
+		//移除定时器
+		clearInterval(timer);
+		//释放闭包
+		end = move = null;
+	}
+	ev.preventDefault();
+}
+//返回角度
+function getAngle(disX, disY) {
+	return Math.atan2(disY, disX) * 180 / Math.PI;
+}
+//根据起点和终点返回方向 1：向上，2：向下，3：向左，4：向右,0：未滑动
+function getDirection(disX,disY) {
+	var result = 0;
+	//如果滑动距离太短
+	if (Math.abs(disX) < 2 && Math.abs(disY) < 2) {
+		return result;
+	}
+	var angle = getAngle(disX, disY);
+	if (angle >= -45 && angle < 45) {
+		result = 4;
+	} else if (angle >= 45 && angle < 135) {
+		result = 1;
+	} else if (angle >= -135 && angle < -45) {
+		result = 2;
+	}
+	else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+		result = 3;
+	}
+	return result;
+}
+
 </script>
 </head>
  
