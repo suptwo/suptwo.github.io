@@ -57,7 +57,7 @@ window.onload=function(){
 	oUl.dis=false;
 	oIframe.style.height=window.innerHeight+'px';
 	oT.focus();
-	oT.onkeyup=function(ev){
+	oT.addEventListener('input',function(ev){
 		if(oUl.dis){
 			oUl.style.display='block';
 		}
@@ -103,7 +103,7 @@ window.onload=function(){
 				}
 			}	
 		});
-	};
+	},false);
 	//关闭按钮
 	oA.addEventListener('touchstart',addTouch,false);
 	oA.clickFn=function(){
