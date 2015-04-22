@@ -101,14 +101,25 @@ window.onload=function(){
 					oUl.appendChild(oLi);
 					//加事件
 					(function(index){
-						oLi.addEventListener('click',function(){
+						oLi.addEventListener('touchstart',addTouch,false);
+						oLi.clickFn=function(){
 							oT.value=oUl.children[index].innerHTML;
 							oUl.style.display='none';
 							oUl.innerHTML='';
 							oUl.dis=true;
 							var oEvent=ev||event;
-						},false);
+						}
 					})(i);
+				}
+				oUl.addEventListener('touchstart',addTouch,false);
+				oUl.clickFn=function(ev){
+					var oSrc=ev.srcElement||ev.target;
+					if(oSrc.tagName=='li'){
+						oT.value=oSrc.innerHTML;
+						oUl.style.display='none';
+						oUl.innerHTML='';
+						oUl.dis=true;
+					}
 				}
 			}	
 		});
