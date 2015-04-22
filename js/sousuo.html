@@ -40,6 +40,7 @@ img{max-width:100%;height:auto;}
 .putval{height:30px; margin-left:15px; position:relative;}
 .putval .txt1{ border:1px solid #dadada; line-height:14px; height:14px; padding:7px 3px; width:180px; margin-right:3px;}
 .searchBtn{line-height:30px; height:30px; text-align:center; width:68px; background:#06F; color:#fff;}
+
 .searchlist{ width:180px; position:absolute; left:0; top:35px;}
 .searchlist li{ height:30px; line-height:30px; border-bottom:1px dashed #000; text-indent:10px; color:#222;white-space: nowrap;}
 .jsclose{ position:absolute; top:3px; right:10px; background:url(../img/close.png); height:24px; width:24px;z-index:9;display:none;}
@@ -56,16 +57,6 @@ window.onload=function(){
 	var oIframe=document.querySelector('iframe');
 	var oA=document.querySelector('.jsclose');
 	oUl.dis=false;
-
-	//document.addEventListener('click',function(ev){
-//		var oEvent=ev || event;
-//		var srcEle=oEvent.srcElement||oEvent.targte;
-//		if(srcEle==this){
-//			oUl.style.display='none';
-//			oLog.children[2].style.display='none';
-//		}
-//	},false);
-
 	oIframe.style.height=window.innerHeight+'px';
 	document.addEventListener('click',function(ev){
 		var oEvent=ev || event;
@@ -109,13 +100,12 @@ window.onload=function(){
 					oUl.appendChild(oLi);
 					//加事件
 					(function(index){
-						oLi.addEventListener('click',function(ev){
+						oLi.addEventListener('click',function(){
 							oT.value=oUl.children[index].innerHTML;
 							oUl.style.display='none';
 							oUl.innerHTML='';
 							oUl.dis=true;
 							var oEvent=ev||event;
-							oEvent.cancelBubble=true;
 						},false);
 					})(i);
 				}
@@ -124,17 +114,14 @@ window.onload=function(){
 		oldValue=oT.value;
 	};
 	//关闭按钮
-	oA.addEventListener('click',function(ev){
+	oA.addEventListener('click',function(){
 		var oEvent=ev||event;
 		oIframe.style.display='none';
-		oA.style.display='none';
 		oLog.parentNode.style.display='block';
-		oEvent.cancelBubble=true;
 	},false);
 	
 	//触发搜索事件
 	oBtn.addEventListener('click',function(ev){
-		var oEvent=ev||event;
 		oIframe.style.display='block';
 		oLog.parentNode.style.display='none';
 		oA.style.display='block';
@@ -143,29 +130,25 @@ window.onload=function(){
 		}else{
 			oIframe.src='http://www.baidu.com/s?wd='+oT.value;
 		}	
-		oEvent.cancelBubble=true;
 	},false);
 	//搜索引擎切换
-	oLog.children[1].addEventListener('click',function(ev){
+	oLog.children[1].addEventListener('click',function(){
 		var _this=this;
-		var oEvent=ev||event;
 		if(oLog.bClick){
 			oLog.children[2].style.display='block';
 			for(var i=0;i<oLog.children[2].children.length;i++){
-				oLog.children[2].children[i].onclick=function(ev){
+				oLog.children[2].children[i].onclick=function(){
 					var oEvent=ev||event;
 					oLog.bClick=true;
 					oLog.children[2].style.display='none';
 					_this.className=this.className;
 					this.onclick=null;
-					oEvent.cancelBubble=true;
 				};
 			}
 		}else{
 			oLog.children[2].style.display='none';
 		}
 		oLog.bClick=!oLog.bClick;
-		oEvent.cancelBubble=true;
 	},false);
 	
 };
