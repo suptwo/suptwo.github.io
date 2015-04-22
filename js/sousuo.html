@@ -44,7 +44,7 @@ img{max-width:100%;height:auto;}
 .searchlist{ width:180px; position:absolute; left:0; top:35px;}
 .searchlist li{ height:30px; line-height:30px; border-bottom:1px dashed #000; text-indent:10px; color:#222;white-space: nowrap;}
 iframe{ position:absolute; top:0; left:0; z-index:98; width:320px; height:680px;}
-.jsclose{ position:absolute; top:3px; right:10px; background:url(../img/close.png); height:24px; width:24px;z-index:99;display:none;}
+.jsclose{ position:absolute; top:3px; right:10px; background:url(../img/close.png); height:24px; width:24px;z-index:9;display:none;}
 </style>
 <script>
 window.onload=function(){
@@ -58,14 +58,14 @@ window.onload=function(){
 	var oIframe=document.querySelector('iframe');
 	var oA=document.querySelector('.jsclose');
 	oUl.dis=false;
-	document.addEventListener('click',function(ev){
-		var oEvent=ev || event;
-		var srcEle=oEvent.srcElement||oEvent.targte;
-		if(srcEle==this){
-			oUl.style.display='none';
-			oLog.children[2].style.display='none';
-		}
-	},false)
+	//document.addEventListener('click',function(ev){
+//		var oEvent=ev || event;
+//		var srcEle=oEvent.srcElement||oEvent.targte;
+//		if(srcEle==this){
+//			oUl.style.display='none';
+//			oLog.children[2].style.display='none';
+//		}
+//	},false)
 	oT.onkeyup=function(ev){
 		if(oUl.dis){
 			oUl.style.display='block';
@@ -118,7 +118,6 @@ window.onload=function(){
 		var oEvent=ev||event;
 		oIframe.style.display='none';
 		oA.style.display='none';
-			
 		oEvent.cancelBubble=true;
 	},false);
 	
