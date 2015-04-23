@@ -1,18 +1,32 @@
 @charset "utf-8";
 /*重置*/
-body{margin: 0;padding: 0;width: 100%;height: 100%;overflow: hidden; font:12px/1em "Microsoft YaHei";}
-h1,h2,h3,h4,h5,h6 {margin:0; font:12px/1em "Microsoft YaHei";}
-ul, ol {margin:0; padding:0;}
-li {list-style:none;}
-img {border:none;}
-em {font-style:normal;}
-p {margin:0;}
-strong {font-weight:normal;}
-a {text-decoration:none;}
+@charset 'utf-8';
+body{font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;color: #000000;font-size: 14px; font-family: 微软雅黑;
+	color: #fff;}
+body, 
+div,dl,dt,dd,ul,ol,li,
+h1,h2,h3,h4,h5,h6,pre,code,
+form,fieldset,legend,input,textarea,
+p,blockquote,th,td,hr,button,
+footer,header,hgroup,menu,nav,section{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}/*html5*/
+table{border-collapse:collapse;border-spacing:0;}
+input,h1,h2,h3,h4,h5,h6,select,button,textarea{font-family: inherit;font-weight: normal;}
+address,caption,cite,code,dfn,em,strong,th,var, i,pre{ font-weight: normal; font-style: normal;} 
+input,textarea,select{margin:0px;padding:0px;outline:none;border:none; }
+input[type="text"],textarea,select{margin:0px;padding:0px;}
+a,a:hover{text-decoration: none;outline: none;color: #6E6E6E;}
+i,em{font-style:normal;}
+img,fieldset{border:none;}
+ol,ul,li{list-style: none;}
+table{width: 100%;border-collapse: collapse;border-spacing: 0;}
+textarea{resize: none;}
 /*清除浮动*/
 .clearfix:before, .clearfix:after { content:"";display: table;}
 .clearfix:after{clear:both;	overflow: hidden;}
 .clearfix{zoom:1;clear:both;}
+
+
 /*移动端*/
 html, body {-webkit-user-select: none;   user-select: none;-webkit-user-drag:none;}/* 禁止选中文本（如无文本选中需求，此为必选项） */
 body{-webkit-overflow-scrolling: touch;}
