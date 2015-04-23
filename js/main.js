@@ -224,7 +224,6 @@ document.addEventListener('DOMContentLoaded',function(){
 						oAppBox.innerHTML = '';
 						oHead.removeChild(oScr);
 						oHead.removeChild(oLink);
-						oCloseBtn.clickFn =null;
 					},600);
 				};
 			}
