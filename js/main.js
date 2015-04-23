@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded',function(){
 				{
 					name: 'G2048',
 					img: 'img/G2048.png'
+				},
+				{
+					name: 'sousuo',
+					img: 'img/sousuo.png'
 				}
 			];
 

@@ -1,0 +1,20 @@
+<section class="box clearfix">
+	<!--ËÑËØÇÐ»»-->
+    <section class="log fl">
+    	<span></span>
+    	<h1 class="baidu"></h1>
+        <ul style="display:none">
+        	<li class="baidu"></li>
+            <li class="q360"></li>
+        </ul>
+    </section>
+    <!--ÊäÈë¿ò-->
+	<section class="putval fl">
+    	<input type="text" class="txt1" placeholder="ÇëÔÚÕâÊäÈëÄãÒªËÑËØµÄÄÚÈÝ"/>
+    	<input type="botton" class="searchBtn" value="ËÑËØ"/>
+        <ul class="searchlist">
+   		</ul>
+    </section>
+</section>
+<iframe src="#"></iframe>
+<a href="javascript:;" class="js-close"></a>
