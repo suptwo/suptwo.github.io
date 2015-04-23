@@ -1,17 +1,17 @@
-<section class="box clearfix">
+<section class="sousuobox clearfix">
 	<!--搜素切换-->
-    <section class="log fl">
+    <section class="sousuolog fl">
     	<span></span>
-    	<h1 class="baidu"></h1>
+    	<h1 class="sousuobaidu"></h1>
         <ul style="display:none">
-        	<li class="baidu"></li>
-            <li class="q360"></li>
+        	<li class="sousuobaidu"></li>
+            <li class="sousuoq360"></li>
         </ul>
     </section>
     <!--输入框-->
-	<section class="putval fl">
-    	<input type="text" class="txt1" placeholder="请在这输入你要搜素的内容"/>
-    	<input type="botton" class="searchBtn" value="搜素"/>
+	<section class="sousuoputval fl">
+    	<input type="text" class="sousuotxt1" placeholder="请在这输入你要搜素的内容"/>
+    	<input type="botton" class="sousuosearchBtn" value="搜素"/>
         <ul class="searchlist">
    		</ul>
     </section>

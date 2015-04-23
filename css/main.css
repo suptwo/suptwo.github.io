@@ -25,7 +25,8 @@ textarea{resize: none;}
 .clearfix:before, .clearfix:after { content:"";display: table;}
 .clearfix:after{clear:both;	overflow: hidden;}
 .clearfix{zoom:1;clear:both;}
-
+.fl{ float: left;}
+.fr{ float:right;}
 
 /*移动端*/
 html, body {-webkit-user-select: none;   user-select: none;-webkit-user-drag:none;}/* 禁止选中文本（如无文本选中需求，此为必选项） */

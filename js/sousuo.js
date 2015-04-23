@@ -1,14 +1,14 @@
 (function(){
 	var oIframe=document.querySelector('iframe');
-	var oBoxSection=document.querySelector('section.box');
-	var oLog=document.querySelector('.log');
+	var oBoxSection=document.querySelector('section.sousuobox');
+	var oLog=document.querySelector('.sousuolog');
 	var ojsclose=document.querySelector('.js-close');
 	var iNow=-1;
 	var oldValue='';
 	oLog.bClick=true;
-	var oT=document.querySelector('.txt1');
-	var oUl=document.querySelector('.searchlist');
-	var oBtn=document.querySelector('.searchBtn');
+	var oT=document.querySelector('.sousuotxt1');
+	var oUl=document.querySelector('.sousuosearchlist');
+	var oBtn=document.querySelector('.sousuosearchBtn');
 	oUl.dis=false;
 	ojsclose.addEventListener('touchstart',addTouch,false);
 	ojsclose.clickFn=function(ev){
