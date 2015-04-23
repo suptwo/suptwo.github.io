@@ -196,21 +196,15 @@ document.addEventListener('DOMContentLoaded',function(){
 								var oLink = document.createElement('link');
 								oLink.rel = 'stylesheet';
 								oLink.href = 'css/'+target.id+'.css';
-								oLink.onload=function(){
-									oHead.appendChild(oLink);
-									oAppBox.innerHTML = str;
-									oAppBox.onload=function(){
-										//添加APP js文件
-										var oScr = document.createElement('script');
-										oScr.src = 'js/'+target.id+'.js';								
-										oHead.appendChild(oScr);
-										//关闭事件
-										addClose(oScr,oLink);
-										//oAppBox.onload=oLink.onload=null;
-									};
-									
-								}								
-								
+								oHead.appendChild(oLink);
+								var oScr = document.createElement('script');
+								oScr.src = 'js/'+target.id+'.js';
+								oLink.onload=function(){									
+									oAppBox.innerHTML = str;			
+									oHead.appendChild(oScr);
+								}
+								//关闭事件								
+								addClose(oScr,oLink);
 							},500);
 						});
 					},100);
