@@ -11,9 +11,9 @@
 	{
 		var oDate=new Date();
 		
-		oHour.style.transform='rotate('+30*(oDate.getHours()+oDate.getMinutes()/60)+'deg)';
-		oMin.style.transform='rotate('+6*(oDate.getMinutes()+oDate.getSeconds()/60)+'deg)';
-		oSec.style.transform='rotate('+6*oDate.getSeconds()+'deg)';
+		oHour.style.WebkitTransform='rotate('+30*(oDate.getHours()+oDate.getMinutes()/60)+'deg)';
+		oMin.style.WebkitTransform='rotate('+6*(oDate.getMinutes()+oDate.getSeconds()/60)+'deg)';
+		oSec.style.WebkitTransform='rotate('+6*oDate.getSeconds()+'deg)';
 	}
 	setInterval(tick, 1000);
 	tick();
@@ -31,10 +31,10 @@
 		{
 			oS.className='big_scaler';
 			oS.innerHTML='<em>'+arr[i/5]+'<\/em>';
-			oS.children[0].style.transform='rotate('+-6*i+'deg)';
+			oS.children[0].style.WebkitTransform='rotate('+-6*i+'deg)';
 		}
 		
-		oS.style.transform='rotate('+6*i+'deg)';
+		oS.style.WebkitTransform='rotate('+6*i+'deg)';
 		oDiv.appendChild(oS);
 	}
 })();

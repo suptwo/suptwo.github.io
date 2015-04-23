@@ -1,11 +1,11 @@
-#div11 {width:300px; height:300px; border:1px solid black; margin:100px auto; border-radius:50%; position:relative; box-shadow:2px 2px 5px #666;}
+#div11 {width:300px; height:300px; border:1px solid black; margin:80px auto; border-radius:50%; position:relative; box-shadow:2px 2px 5px #666;}
 
-#div11 div.hour {width:10px; height:100px; background:black; position:absolute; left:50%; margin-left:-5px; top:50px; transform-origin:50% 100%;}
-#div11 div.min {width:6px; height:120px; background:black; position:absolute; left:50%; margin-left:-3px; top:30px; transform-origin:50% 100%;}
-#div11 div.sec {width:2px; height:140px; background:black; position:absolute; left:50%; margin-left:-1px; top:10px; transform-origin:50% 100%;}
+#div11 div.hour {width:10px; height:100px; background:black; position:absolute; left:50%; margin-left:-5px; top:50px; -webkit-transform-origin:50% 100%;}
+#div11 div.min {width:6px; height:120px; background:black; position:absolute; left:50%; margin-left:-3px; top:30px; -webkit-transform-origin:50% 100%;}
+#div11 div.sec {width:2px; height:140px; background:black; position:absolute; left:50%; margin-left:-1px; top:10px; -webkit-transform-origin:50% 100%;}
 
 #div11 div.cap {width:20px; height:20px; background:#999; position:absolute; left:50%; top:50%; margin-left:-10px; margin-top:-10px; border-radius:50%;}
 
-#div11 span.scaler {position:absolute; width:2px; height:5px; background:black; left:50%; margin-left:-1px; top:0; transform-origin:50% 150px;}
-#div11 span.big_scaler {position:absolute; width:4px; height:12px; background:black; left:50%; margin-left:-2px; top:0; transform-origin:50% 150px;}
+#div11 span.scaler {position:absolute; width:2px; height:5px; background:black; left:50%; margin-left:-1px; top:0; -webkit-transform-origin:50% 150px;}
+#div11 span.big_scaler {position:absolute; width:4px; height:12px; background:black; left:50%; margin-left:-2px; top:0; -webkit-transform-origin:50% 150px;}
 #div11 span.big_scaler em {font-style:normal; position:absolute; top:10px; width:50px; left:50%; margin-left:-25px; text-align:center;}
