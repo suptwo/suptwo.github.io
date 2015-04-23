@@ -9,4 +9,3 @@
 #div11 span.scaler {position:absolute; width:2px; height:5px; background:black; left:50%; margin-left:-1px; top:0; transform-origin:50% 150px;}
 #div11 span.big_scaler {position:absolute; width:4px; height:12px; background:black; left:50%; margin-left:-2px; top:0; transform-origin:50% 150px;}
 #div11 span.big_scaler em {font-style:normal; position:absolute; top:10px; width:50px; left:50%; margin-left:-25px; text-align:center;}
-.js-close{ width:20px; height:20px; background:url(../img/js-close.jpg) no-repeat center center; position:absolute; right:10px; top:10px;}

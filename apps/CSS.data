@@ -6,3 +6,4 @@
   <div class="right">右面</div>
   <div class="top">顶部</div>
 </div>
+<a href="javascript:;" class="js-close"></a>
