@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded',function(){
 										oHead.appendChild(oScr);
 										//关闭事件
 										addClose(oScr,oLink);
-										oAppBox.onload=oLink.onload=null;
+										//oAppBox.onload=oLink.onload=null;
 									};
 									
 								}								
