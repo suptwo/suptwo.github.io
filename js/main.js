@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			var oHead = document.getElementsByTagName('head')[0];
 
 			oMain.clickFn = function(ev){
-				var target = ev.target || ev.srcElement;
+				var target = ev.target;
 				if(hasClass(target,'icon')){
 					oAppBox.style.display = 'block';
 					setTimeout(function(){
@@ -192,18 +192,25 @@ document.addEventListener('DOMContentLoaded',function(){
 						oAppBox.style.opacity = 1;
 						ajax('apps/'+target.id+'.data',function(str){
 							setTimeout(function(){
-								oAppBox.innerHTML = str;
-								//添加APP js文件
-								var oScr = document.createElement('script');
-								oScr.src = 'js/'+target.id+'.js';
-								oHead.appendChild(oScr);
 								//添加APP css文件
 								var oLink = document.createElement('link');
 								oLink.rel = 'stylesheet';
-								oLink.href = 'css/'+target.id+'.css'
-								oHead.appendChild(oLink);
-								//关闭事件
-								addClose(oScr,oLink);
+								oLink.href = 'css/'+target.id+'.css';
+								oLink.onload=function(){
+									oHead.appendChild(oLink);
+									oAppBox.innerHTML = str;
+									oAppBox.onload=function(){
+										//添加APP js文件
+										var oScr = document.createElement('script');
+										oScr.src = 'js/'+target.id+'.js';								
+										oHead.appendChild(oScr);
+										//关闭事件
+										addClose(oScr,oLink);
+										oAppBox.onload=oLink.onload=null;
+									};
+									
+								}								
+								
 							},500);
 						});
 					},100);
@@ -223,6 +230,7 @@ document.addEventListener('DOMContentLoaded',function(){
 						oAppBox.innerHTML = '';
 						oHead.removeChild(oScr);
 						oHead.removeChild(oLink);
+						oCloseBtn.clickFn =null;
 					},600);
 				};
 			}
