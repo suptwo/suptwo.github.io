@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 		//设置时间
 		setTime();
-		setInterval(function(){
+		var oMtimer=setInterval(function(){
 			setTime();
 		},1000);
 
@@ -438,10 +438,11 @@ document.addEventListener('DOMContentLoaded',function(){
 				this.style.webkitTransform = 'translate3d(0,-'+700+'px,0)';
 				this.style.webkitTransition = '-webkit-transform  0.8s ease';
 				setTimeout(function(){
-					oMask.style.display = 'none';
+					oMtimer=null;
 					oMask.completeFn = function (){
 						oMask.moveFn = oMask.slowFn = oMask.upFn = oMask.completeFn = null;
 					};
+					oMask.parentNode.removeChild(oMask);
 				},1000);
 			}else{
 				this.style.webkitTransform = 'translate3d(0,0,0)';
@@ -452,10 +453,11 @@ document.addEventListener('DOMContentLoaded',function(){
 			this.style.webkitTransform = 'translate3d(0,-'+700+'px,0)';
 			this.style.webkitTransition = '-webkit-transform  0.8s ease';
 			setTimeout(function(){
-				oMask.style.display = 'none';
+				oMtimer=null;
 				oMask.completeFn = function (){
 					oMask.moveFn = oMask.slowFn = oMask.upFn = oMask.completeFn = null;
 				};
+				oMask.parentNode.removeChild(oMask);
 			},1000);
 		};
 

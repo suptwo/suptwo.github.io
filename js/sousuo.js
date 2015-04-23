@@ -1,6 +1,6 @@
 (function(){
 	var oIframe=document.querySelector('iframe');
-	var oBoxSection=document.querySelector('section.sousuobox');
+	var oBoxSection=document.querySelector('.sousuobox');
 	var oLog=document.querySelector('.sousuolog');
 	var ojsclose=document.querySelector('.js-close');
 	var iNow=-1;

@@ -1,4 +1,4 @@
-.sousuobox{  width:320px; margin:0 auto;margin-top:20%px; height:80%}
+.sousuobox{  width:320px; margin:0 auto;margin-top:80px; height:400px;}
 .sousuolog{ height:30px; width:30px;position:relative; margin-left:10px}
 .sousuolog span{ position:absolute; top:15px; left:32px; height:0; width:0; line-height:0; border:5px dashed transparent;border-top:5px solid #ccc;}
 .sousuolog ul{ position:absolute; top:35px; left:0; }
