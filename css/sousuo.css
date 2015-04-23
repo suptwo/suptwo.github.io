@@ -3,8 +3,8 @@
 .log span{ position:absolute; top:15px; left:32px; height:0; width:0; line-height:0; border:5px dashed transparent;border-top:5px solid #ccc;}
 .log ul{ position:absolute; top:35px; left:0; }
 .log li,.log h1{ height:30px; width:30px; background-size:100%; margin-bottom:3px;}
-.baidu{ background:url(img/baidulog.jpg) no-repeat center center;}
-.q360{ background:url(img/360log.jpg) no-repeat center center;}
+.baidu{ background:url(../img/baidulog.jpg) no-repeat center center;}
+.q360{ background:url(../img/360log.jpg) no-repeat center center;}
 .putval{height:30px; margin-left:15px; position:relative;}
 .putval .txt1{ border:1px solid #dadada; line-height:30px; height:14px; padding:7px 3px; width:180px; margin-right:3px;}
 .searchBtn{line-height:30px; height:30px; text-align:center; width:68px; background:#06F; color:#fff;}
