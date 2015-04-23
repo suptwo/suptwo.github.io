@@ -202,9 +202,10 @@ document.addEventListener('DOMContentLoaded',function(){
 								oLink.onload=function(){									
 									oAppBox.innerHTML = str;			
 									oHead.appendChild(oScr);
+									//关闭事件								
+									addClose(oScr,oLink);
 								}
-								//关闭事件								
-								addClose(oScr,oLink);
+								
 							},500);
 						});
 					},100);
