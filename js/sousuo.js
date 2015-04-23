@@ -1,7 +1,5 @@
 (function(){
 	var oIframe=document.querySelector('iframe');
-	oIframe.style.height=window.innerHeight+'px';
-	oIframe.style.width=window.innerWidth+'px';
 	var oBoxSection=document.querySelector('section.box');
 	var oLog=document.querySelector('.log');
 	var ojsclose=document.querySelector('.js-close');

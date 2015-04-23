@@ -1,5 +1,5 @@
 <section class="box clearfix">
-	<!--ËÑËØÇÐ»»-->
+	<!--æœç´ åˆ‡æ¢-->
     <section class="log fl">
     	<span></span>
     	<h1 class="baidu"></h1>
@@ -8,10 +8,10 @@
             <li class="q360"></li>
         </ul>
     </section>
-    <!--ÊäÈë¿ò-->
+    <!--è¾“å…¥æ¡†-->
 	<section class="putval fl">
-    	<input type="text" class="txt1" placeholder="ÇëÔÚÕâÊäÈëÄãÒªËÑËØµÄÄÚÈÝ"/>
-    	<input type="botton" class="searchBtn" value="ËÑËØ"/>
+    	<input type="text" class="txt1" placeholder="è¯·åœ¨è¿™è¾“å…¥ä½ è¦æœç´ çš„å†…å®¹"/>
+    	<input type="botton" class="searchBtn" value="æœç´ "/>
         <ul class="searchlist">
    		</ul>
     </section>
