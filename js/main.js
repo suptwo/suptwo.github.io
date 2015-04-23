@@ -7,10 +7,6 @@ document.addEventListener('DOMContentLoaded',function(){
 	document.body.style.height = screenH + 'px';
 	oCavs.style.height = screenH + 'px';
 
-	if( 400 > screenH){
-		alert('姿势不正确');
-	}
-
 
 	//首屏
 	(function(){

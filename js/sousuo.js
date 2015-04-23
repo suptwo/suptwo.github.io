@@ -16,7 +16,7 @@
 		oIframe.style.display='none';
 		ev.cancelBubble=true;
 	}
-	oT.addEventListener('change',function(ev){
+	oT.addEventListener('keyup',function(ev){
 		if(oUl.dis){
 			oUl.style.display='block';
 		}
