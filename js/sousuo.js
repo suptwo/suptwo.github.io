@@ -67,7 +67,6 @@
 				oBoxSection.style.display='none';
 				oIframe.style.display='block';
 			}
-			ev.preventDefault();
 			ev.cancelBubble=true;
 		}
 		oldValue=oT.value;
@@ -83,7 +82,6 @@
 		}
 		oBoxSection.style.display='none';
 		oIframe.style.display='block';	
-		ev.preventDefault();
 		ev.cancelBubble=true;
 	};
 	//搜索引擎切换
@@ -100,7 +98,6 @@
 					oLog.children[2].style.display='none';
 					_this.className=this.className;
 					this.onclick=null;
-					ev.preventDefault();
 					ev.cancelBubble=true;
 				};
 			}
