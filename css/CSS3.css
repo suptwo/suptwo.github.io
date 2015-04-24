@@ -1,10 +1,11 @@
-input{margin-top:50px;}
+input{margin-top:50px; margin-left:10px;}
+#m_30{ margin-left:40px}
 .space3d {
   -webkit-perspective: 1000px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   text-align: center;
-  margin:50px;
+  margin:50px auto;
   float:left;
   margin-left:20px;
 }
@@ -27,33 +28,33 @@ input{margin-top:50px;}
   color: #333;
   line-height: 250px;
   opacity: 0.8;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   background-size:100%;
 }
 ._3dface--front {
-  -webkit-transform: translateZ(125px);
-  background-img:url(../img/66.jpg)
+  -webkit-transform: translateZ(100px);
+  background:url(../img/66.jpg)
 }
 ._3dface--top {
-  -webkit-transform: rotateX(90deg) translateZ(125px);
-  background-img:url(../img/111.jpg)
+  -webkit-transform: rotateX(90deg) translateZ(100px);
+  background:url(../img/111.jpg)
 }
 ._3dface--bottom {
-  -webkit-transform: rotateX(-90deg) translateZ(125px);
-  background-img:url(../img/22.jpg)
+  -webkit-transform: rotateX(-90deg) translateZ(100px);
+  background:url(../img/22.jpg)
 }
 ._3dface--left {
-  -webkit-transform: rotateY(-90deg) translateZ(125px);
-  background-img:url(../img/33.jpg)
+  -webkit-transform: rotateY(-90deg) translateZ(100px);
+  background:url(../img/33.jpg)
 }
 ._3dface--right {
-  -webkit-transform: rotateY(90deg) translateZ(125px);
-  background-img:url(../img/44.jpg)
+  -webkit-transform: rotateY(90deg) translateZ(100px);
+  background:url(../img/44.jpg)
 }
 ._3dface--back {
-  -webkit-transform: rotateY(180deg) translateZ(125px);
-  background-img:url(../img/55.jpg)
+  -webkit-transform: rotateY(180deg) translateZ(100px);
+  background:url(../img/55.jpg)
 }
 #radio-left:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(90deg);}
 #radio-right:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(-90deg);}

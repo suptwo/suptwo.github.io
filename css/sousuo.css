@@ -1,11 +1,11 @@
 .sousuobox{  width:320px; margin:0 auto;margin-top:80px;}
-.sousuolog{ height:30px; width:30px;position:relative; margin-left:10px}
+.sousuolog{ height:30px; width:30px;position:relative; margin-left:8px}
 .sousuolog span{ position:absolute; top:15px; left:32px; height:0; width:0; line-height:0; border:5px dashed transparent;border-top:5px solid #ccc;}
 .sousuolog ul{ position:absolute; top:35px; left:0; }
 .sousuolog li,.sousuolog h1{ height:30px; width:30px; background-size:100%; margin-bottom:3px;}
 .sousuobaidu{ background:url(../img/baidulog.jpg) no-repeat center center;}
 .sousuoq360{ background:url(../img/360log.jpg) no-repeat center center;}
-.sousuoputval{height:30px; margin-left:15px; position:relative;}
+.sousuoputval{height:30px; margin-left:10px; position:relative;}
 .sousuoputval .sousuotxt1{ border:1px solid #dadada; line-height:12px; height:12px; padding:8px 3px; width:180px; margin-right:3px;}
 .sousuosearchBtn{line-height:30px; height:30px; text-align:center; width:65px; background:#06F; color:#fff;}
 

@@ -1,4 +1,4 @@
-<input type="radio" checked id="radio-front" name="select-face"/>    
+<input type="radio" checked id="radio-front m_30" name="select-face"/>    
 <input type="radio" id="radio-left" name="select-face"/>
 <input type="radio" id="radio-right" name="select-face"/>
 <input type="radio" id="radio-top" name="select-face"/>
