@@ -9,9 +9,9 @@
         </ul>
     </section>
     <!--输入框-->
-	<section class="sousuoputval fl">
-    	<input type="text" class="sousuotxt1" placeholder="请在这输入你要搜素的内容"/>
-    	<input type="botton" class="sousuosearchBtn" value="搜素"/>
+	<section class="sousuoputval fl clearfix">
+    	<input type="text" class="sousuotxt1 fl" placeholder="请在这输入你要搜素的内容"/>
+    	<input type="botton" class="sousuosearchBtn fl" value="搜素"/>
         <ul class="sousuosearchlist">
    		</ul>
     </section>
