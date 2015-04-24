@@ -1,6 +1,6 @@
 input{margin-top:50px;}
 .space3d {
-  perspective: 1000px;
+  -webkit-perspective: 1000px;
   width: 250px;
   height: 250px;
   text-align: center;
@@ -10,20 +10,20 @@ input{margin-top:50px;}
 }
 ._3dbox {
   display: inline-block;
-  transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-align: center;
   position: relative;
   width: 100%;
   height: 100%;
-  transform-style: preserve-3d;
-  transform: rotateX(-15deg) rotateY(15deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateX(-15deg) rotateY(15deg);
 }
 ._3dface {
   overflow: hidden;
   position: absolute;
   border: 1px solid #888;
   background: #FFF;
-  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
   color: #333;
   line-height: 250px;
   opacity: 0.8;
@@ -32,31 +32,31 @@ input{margin-top:50px;}
   background-size:100%;
 }
 ._3dface--front {
-  transform: translateZ(125px);
+  -webkit-transform: translateZ(125px);
   background-img:url(../img/66.jpg)
 }
 ._3dface--top {
-  transform: rotateX(90deg) translateZ(125px);
+  -webkit-transform: rotateX(90deg) translateZ(125px);
   background-img:url(../img/111.jpg)
 }
 ._3dface--bottom {
-  transform: rotateX(-90deg) translateZ(125px);
+  -webkit-transform: rotateX(-90deg) translateZ(125px);
   background-img:url(../img/22.jpg)
 }
 ._3dface--left {
-  transform: rotateY(-90deg) translateZ(125px);
+  -webkit-transform: rotateY(-90deg) translateZ(125px);
   background-img:url(../img/33.jpg)
 }
 ._3dface--right {
-  transform: rotateY(90deg) translateZ(125px);
+  -webkit-transform: rotateY(90deg) translateZ(125px);
   background-img:url(../img/44.jpg)
 }
 ._3dface--back {
-  transform: rotateY(180deg) translateZ(125px);
+  -webkit-transform: rotateY(180deg) translateZ(125px);
   background-img:url(../img/55.jpg)
 }
-#radio-left:checked ~ .space3d ._3dbox { transform: rotateY(90deg);}
-#radio-right:checked ~ .space3d ._3dbox { transform: rotateY(-90deg);}
-#radio-back:checked ~ .space3d ._3dbox { transform: rotateY(180deg);}
-#radio-bottom:checked ~ .space3d ._3dbox { transform: rotateX(90deg);}
-#radio-top:checked ~ .space3d ._3dbox { transform: rotateX(-90deg);}
+#radio-left:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(90deg);}
+#radio-right:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(-90deg);}
+#radio-back:checked ~ .space3d ._3dbox { -webkit-transform: rotateY(180deg);}
+#radio-bottom:checked ~ .space3d ._3dbox { -webkit-transform: rotateX(90deg);}
+#radio-top:checked ~ .space3d ._3dbox { -webkit-transform: rotateX(-90deg);}
