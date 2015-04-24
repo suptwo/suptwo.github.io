@@ -1,4 +1,4 @@
-input{margin-top:40px;}
+input{margin-top:50px;}
 .space3d {
   perspective: 1000px;
   width: 250px;
@@ -33,27 +33,27 @@ input{margin-top:40px;}
 }
 ._3dface--front {
   transform: translateZ(125px);
-  background:url(../img/66.jpg) no-repeat center center;
+  background-img:url(../img/66.jpg)
 }
 ._3dface--top {
   transform: rotateX(90deg) translateZ(125px);
-  background:url(../img/111.jpg) no-repeat center center;
+  background-img:url(../img/111.jpg)
 }
 ._3dface--bottom {
   transform: rotateX(-90deg) translateZ(125px);
-  background:url(../img/22.jpg) no-repeat center center;
+  background-img:url(../img/22.jpg)
 }
 ._3dface--left {
   transform: rotateY(-90deg) translateZ(125px);
-  background:url(../img/33.jpg) no-repeat center center;
+  background-img:url(../img/33.jpg)
 }
 ._3dface--right {
   transform: rotateY(90deg) translateZ(125px);
-  background:url(../img/44.jpg) no-repeat center center;
+  background-img:url(../img/44.jpg)
 }
 ._3dface--back {
   transform: rotateY(180deg) translateZ(125px);
-  background:url(../img/55.jpg) no-repeat center center;
+  background-img:url(../img/55.jpg)
 }
 #radio-left:checked ~ .space3d ._3dbox { transform: rotateY(90deg);}
 #radio-right:checked ~ .space3d ._3dbox { transform: rotateY(-90deg);}
