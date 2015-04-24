@@ -6,7 +6,7 @@ html{background:-webkit-radial-gradient(center,ellipse,#430d6d 0%,#000000 100%);
 .front{-webkit-transform:rotateY(0deg) translateZ(140px);}
 .left{-webkit-transform:rotateY(-90deg) translateZ(140px);}
 .right{-webkit-transform:rotateY(90deg) translateZ(140px);}
-.top{-webkit-transform:rotateX(90deg) translateZ(140px);}
+.top{-webkit-transform:rotateX(90deg) translateZ(140px); }
 @-webkit-keyframes spin{
 	from{-webkit-transform:translateZ(-140px) rotateX(0) rotateY(0deg);}
 	to{-webkit-transform:translateZ(-140px) rotateX(360deg) rotateY(360deg);}
