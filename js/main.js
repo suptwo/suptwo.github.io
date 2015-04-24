@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			var oHead = document.getElementsByTagName('head')[0];
 
 			oMain.clickFn = function(ev){
-				var target = ev.target || ev.srcElement;
+				var target = ev.target;
 				if(hasClass(target,'icon')){
 					oAppBox.style.display = 'block';
 					setTimeout(function(){
@@ -192,18 +192,20 @@ document.addEventListener('DOMContentLoaded',function(){
 						oAppBox.style.opacity = 1;
 						ajax('apps/'+target.id+'.data',function(str){
 							setTimeout(function(){
-								oAppBox.innerHTML = str;
-								//添加APP js文件
-								var oScr = document.createElement('script');
-								oScr.src = 'js/'+target.id+'.js';
-								oHead.appendChild(oScr);
 								//添加APP css文件
 								var oLink = document.createElement('link');
 								oLink.rel = 'stylesheet';
-								oLink.href = 'css/'+target.id+'.css'
+								oLink.href = 'css/'+target.id+'.css';
 								oHead.appendChild(oLink);
-								//关闭事件
-								addClose(oScr,oLink);
+								var oScr = document.createElement('script');
+								oScr.src = 'js/'+target.id+'.js';
+								oLink.onload=function(){									
+									oAppBox.innerHTML = str;			
+									oHead.appendChild(oScr);
+									//关闭事件								
+									addClose(oScr,oLink);
+								}
+								
 							},500);
 						});
 					},100);
@@ -798,15 +800,26 @@ function removeClass(obj,sClass){
 }
 
 
-function jsonp(url){
+function jsonp(json){
+	json=json || {};
+	if(!json.url)return;
+	json.data=json.data || {};
+	json.cbName=json.cbName || 'cb';
+	var fnName='jsonp'+Math.random();
+	fnName=fnName.replace('.','');	
 	window[fnName]=function(data){
 		json.success && json.success(data);
 		oHead.removeChild(oS);
 	};
+	json.data[json.cbName]=fnName;
+	
+	var arr=[];
+	for(var name in json.data){
+		arr.push(name+'='+json.data[name]);
+	}
 	var oS=document.createElement('script');
-	oS.src= url;
+	oS.src=json.url+'?'+arr.join('&');
 	var oHead=document.getElementsByTagName('head')[0];
 	oHead.appendChild(oS);
 }
-
 
