@@ -7,7 +7,7 @@
 .sousuoq360{ background:url(../img/360log.jpg) no-repeat center center;}
 .sousuoputval{height:30px; margin-left:15px; position:relative;}
 .sousuoputval .sousuotxt1{ border:1px solid #dadada; line-height:12px; height:12px; padding:8px 3px; width:180px; margin-right:3px;}
-.sousuosearchBtn{line-height:30px; height:30px; text-align:center; width:68px; background:#06F; color:#fff;}
+.sousuosearchBtn{line-height:30px; height:30px; text-align:center; width:65px; background:#06F; color:#fff;}
 
 .sousuosearchlist{ width:180px; position:absolute; left:0; top:35px;}
 .sousuosearchlist li{ height:30px; line-height:30px; border-bottom:1px dashed #000; text-indent:10px; color:#222;white-space: nowrap;}
