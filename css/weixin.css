@@ -1,5 +1,5 @@
 /*----加我好友----*/
-.appbox .myifo{ position: absolute; background: #ccc;width: 320px; height: 568px; text-align: center;}
+.appbox .myifo{ position: absolute; background: #ccc;width: 320px; height:100%; text-align: center;}
 .appbox .mytop { height: 50px; display: inline-block; 	}
 .appbox .weixin{ background: #ccc;width: 320px; height: 568px; }
 .appbox .photo img { border-radius: 0; }
