@@ -1,4 +1,4 @@
-.myifo{ position: absolute; background: #ccc;width: 320px; height: 568px; }
+.myifo{ position: absolute; background: #ccc;width: 320px; height:100%; }
 .mytop {  height: 100px;}
 .photo { margin: 0 auto; width: 120px; height: 120px;   }
 .photo img{position: absolute; width: 120px; height: 120px;border-radius: 50%;}
