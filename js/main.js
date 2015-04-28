@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 		var oMain = document.getElementById('main');
-		var AappboxMask=document.queryselector('.appbox-mask');
+		var AappboxMask=document.querySelector('.appbox-mask');
 		oMain.addEventListener('touchstart',addTouch,false);
 		//添加点击事件
 		(function(){
