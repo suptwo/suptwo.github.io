@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 		var oMain = document.getElementById('main');
+		var AappboxMask=document.queryselector('.appbox-mask');
 		oMain.addEventListener('touchstart',addTouch,false);
 		//添加点击事件
 		(function(){
@@ -185,6 +186,9 @@ document.addEventListener('DOMContentLoaded',function(){
 				var target = ev.target;
 				if(hasClass(target,'icon')){
 					oAppBox.style.display = 'block';
+					var timer=setTimeout(function(){
+						AappboxMask.style.display = 'block';
+					},700);
 					setTimeout(function(){
 						oMain.style.webkitTransform = 'scale(1.2)';
 						oMain.style.opacity = 0.5;
@@ -202,6 +206,8 @@ document.addEventListener('DOMContentLoaded',function(){
 								oLink.onload=function(){									
 									oAppBox.innerHTML = str;			
 									oHead.appendChild(oScr);
+									clearTimeout(timer);
+									AappboxMask.style.display = 'none';
 									//关闭事件								
 									addClose(oScr,oLink);
 								}
