@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded',function(){
 	if(!window.location.hash){
-		window.location.hash='hello';
-		setTimeout(function(){window.location.reload()},2500);
+		window.location.hash="#hello";
+		setTimeout(function(){location.reload();},2500);	
 	}
-	
 	var oCavs = document.getElementById('canvas');
 	var oContent = document.getElementById('content');
 
@@ -475,6 +474,8 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	})();
 
+
+
 	//app
 	// (function(){
 		//Switch
@@ -721,7 +722,7 @@ function addTouch(ev){
 					console.log("向右");
 					break;
 				default:
-			} 
+			} 
 		}else{
 			_this.slowFn && _this.slowFn(ev,disX,disY);
 		}
@@ -831,4 +832,3 @@ function jsonp(json){
 	var oHead=document.getElementsByTagName('head')[0];
 	oHead.appendChild(oS);
 }
-

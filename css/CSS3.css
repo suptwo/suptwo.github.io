@@ -19,6 +19,7 @@ input{margin-top:50px; margin-left:10px;}
   -webkit-transform-style: preserve-3d;
   -webkit-transform: rotateX(-15deg) rotateY(15deg);
 }
+._3dbox div{ background-repeat:no-repeat; background-size:100%;}
 ._3dface {
   overflow: hidden;
   position: absolute;

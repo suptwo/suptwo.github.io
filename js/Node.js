@@ -1,38 +1,56 @@
-//顶部焦点图
-(function (){
-	var oUl=document.querySelector('#appbox .slider ul');
-	var aLi=oUl.children;
-	var aBtn=document.querySelectorAll('#appbox .slider ol li');
-	var now=0;
-	
-	setInterval(function (){
-		now++;
-		if(now==aLi.length)now=0;
-		tab();
-	}, 2000);
-	
-	function tab(){
-		for(var i=0;i<aBtn.length;i++){
-			aBtn[i].className='';
-		}
-		aBtn[now].className='active';
-		oUl.style.WebkitTransform='translateX(-'+now*aLi[0].offsetWidth+'px)';
-	}
-})();
+// JavaScript Document
+(function(){
+	alert("携程在手，说没就没");
+	alert("由于没开发完，暂由此内容填充");
+    var oBanner=document.getElementById('banner');
+    var oUl=oBanner.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    var oOl=oBanner.getElementsByTagName('ol')[0];
+    var aLi2=oOl.getElementsByTagName('li');
+    var num=0;
+    var timer=null;
+   
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index=i;
+        aLi[i].addEventListener('touchmove',function(){
+            for(var j=0; j<aLi.length; j++){
+                aLi2[j].className='';
+                aLi[j].className='';
+            }
+            num=this.index+1;
+            if(num>3){
+                num=0;
+            }
+            aLi[num].className='active';
+            aLi2[num].className='active';
+        },false)
+    }
 
-//点击搜索
-(function (){
-	var oBtn=document.getElementById('search_btn');
-	var oDiv=document.getElementById('search_dialog');
-	var oBtnClose=oDiv.querySelector('#appbox .close');
-	var oPage=document.querySelector('#appbox .page');
-	
-	oBtn.onclick=function (){
-		oPage.style.display='none';
-		oDiv.style.display='block';
-	};
-	oBtnClose.onclick=function (){
-		oPage.style.display='block';
-		oDiv.style.display='none';
-	};
-})();
+    autoPlay();
+    function autoPlay(){
+		clearInterval(timer);	
+		timer=setInterval(function(){	
+			num++;
+			if(num==aLi.length){	
+				num=0;
+			}
+			 for(var j=0; j<aLi.length; j++){
+                aLi2[j].className='';
+                aLi[j].className='';
+            }
+            aLi[num].className='active';
+            aLi2[num].className='active';
+		},2500)
+	}
+
+    oBanner.addEventListener('touchstart',function(){
+        clearInterval(timer);
+    },false);
+
+    oBanner.addEventListener('touchend',function(){
+        autoPlay();
+    },false);
+
+})();   
+   
+    
