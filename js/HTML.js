@@ -1,40 +1,39 @@
 (function(){
-	var arr=['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
-	
-	var oDiv=document.getElementById('div11');
-	var oHour=oDiv.getElementsByClassName('hour')[0];
-	var oMin=oDiv.getElementsByClassName('min')[0];
-	var oSec=oDiv.getElementsByClassName('sec')[0];
-	
-	//走
-	function tick()
-	{
-		var oDate=new Date();
-		
-		oHour.style.WebkitTransform='rotate('+30*(oDate.getHours()+oDate.getMinutes()/60)+'deg)';
-		oMin.style.WebkitTransform='rotate('+6*(oDate.getMinutes()+oDate.getSeconds()/60)+'deg)';
-		oSec.style.WebkitTransform='rotate('+6*oDate.getSeconds()+'deg)';
-	}
-	setInterval(tick, 1000);
-	tick();
+	var oBox=document.getElementById('clickBox');
+	var oH=document.querySelector('.hour');
+	var oM=document.querySelector('.min');
+	var oS=document.querySelector('.sec');
 	
 	//生成刻度
-	for(var i=0;i<60;i++)
-	{
-		var oS=document.createElement('span');
+	var N=60;
+	for(var i=0; i<N; i++){
+		var oSpan=document.createElement('span');
 		
-		if(i%5)
-		{
-			oS.className='scaler';
-		}
-		else
-		{
-			oS.className='big_scaler';
-			oS.innerHTML='<em>'+arr[i/5]+'<\/em>';
-			oS.children[0].style.WebkitTransform='rotate('+-6*i+'deg)';
+		if(i%5==0){
+			oSpan.className='bs';
+			var num=i/5==0?12:i/5;
+			oSpan.innerHTML='<em>'+num+'<\/em>';
+			oSpan.children[0].style.transform='rotate('+-i*6+'deg)';
+		}else{
+			oSpan.className='scale';	
 		}
 		
-		oS.style.WebkitTransform='rotate('+6*i+'deg)';
-		oDiv.appendChild(oS);
+		oBox.appendChild(oSpan);
+		
+		oSpan.style.transform='rotate('+6*i+'deg)';
 	}
+	
+	function clock(){
+		var oDate=new Date();
+		var h=oDate.getHours();
+		var m=oDate.getMinutes();
+		var s=oDate.getSeconds();
+		var ms=oDate.getMilliseconds();
+		
+		oH.style.transform='rotate('+(h*30+m/60*30)+'deg)';
+		oM.style.transform='rotate('+(m*6+s/60*6)+'deg)';
+		oS.style.transform='rotate('+(s*6+ms/1000*6)+'deg)';	
+	}
+	clock();
+	setInterval(clock,30);
 })();
