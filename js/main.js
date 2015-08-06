@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded',function(){
+	if(!window.location.hash){
+		window.location.hash='hello';
+		setTimeout(function(){window.location.reload()},4000);
+	}
+	
 	var oCavs = document.getElementById('canvas');
 	var oContent = document.getElementById('content');
 
@@ -469,8 +474,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 	})();
-
-
 
 	//app
 	// (function(){
