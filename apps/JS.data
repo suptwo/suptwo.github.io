@@ -135,10 +135,10 @@
 <div id="pic_banner">
     <ul>
         <li>
-            <img src="images/pic_banner01.jpg">
+            <img src="img/pic_banner01.jpg">
         </li>
         <li>
-            <img src="images/pic_banner02.jpg">
+            <img src="img/pic_banner02.jpg">
         </li>
     </ul>
 </div>
