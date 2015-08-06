@@ -108,7 +108,7 @@ section:after,
 
 /*------appbox---------*/
 .appbox { display: none; position: absolute; z-index: 99999; overflow: auto;width: 100%; height: 100%;background: #fff;opacity: 0;-webkit-transform:scale(0.5); -webkit-transition: opacity  0.5s ease,-webkit-transform  0.5s ease; }
-.js-close{ width:20px; height:20px; background:url(../img/js-close.jpg) no-repeat center center; position:absolute; left:10px; top:10px;}
+.js-close{ width:20px; height:20px; background:url(../img/js-close.jpg) no-repeat center center; position:fixed; left:10px; top:10px;  z-index: 1001;}
 .js-close2{width: 50px; height: 50px;  border-radius: 50%; background: #0ac; position:absolute; bottom:30px; top:auto; left:50%; margin-left:-25px;}
 
 
