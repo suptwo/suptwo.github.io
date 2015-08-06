@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',function(){
 	if(!window.location.hash){
 		window.location.hash='hello';
-		setTimeout(function(){window.location.reload()},3000);
+		setTimeout(function(){window.location.reload()},2500);
 	}
 	
 	var oCavs = document.getElementById('canvas');
