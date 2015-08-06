@@ -13,14 +13,14 @@
 			oSpan.className='bs';
 			var num=i/5==0?12:i/5;
 			oSpan.innerHTML='<em>'+num+'<\/em>';
-			oSpan.children[0].style.transform='rotate('+-i*6+'deg)';
+			oSpan.children[0].style.webkitTransform='rotate('+-i*6+'deg)';
 		}else{
 			oSpan.className='scale';	
 		}
 		
 		oBox.appendChild(oSpan);
 		
-		oSpan.style.transform='rotate('+6*i+'deg)';
+		oSpan.style.webkitTransform='rotate('+6*i+'deg)';
 	}
 	
 	function clock(){
@@ -30,9 +30,9 @@
 		var s=oDate.getSeconds();
 		var ms=oDate.getMilliseconds();
 		
-		oH.style.transform='rotate('+(h*30+m/60*30)+'deg)';
-		oM.style.transform='rotate('+(m*6+s/60*6)+'deg)';
-		oS.style.transform='rotate('+(s*6+ms/1000*6)+'deg)';	
+		oH.style.webkitTransform='rotate('+(h*30+m/60*30)+'deg)';
+		oM.style.webkitTransform='rotate('+(m*6+s/60*6)+'deg)';
+		oS.style.webkitTransform='rotate('+(s*6+ms/1000*6)+'deg)';	
 	}
 	clock();
 	setInterval(clock,30);
