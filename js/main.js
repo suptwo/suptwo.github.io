@@ -383,7 +383,9 @@ document.addEventListener('DOMContentLoaded',function(){
 		// <div class="top"></div>
 		// <div class="time"><p>'+hours+':'+minius+'</p><p>3月15日</p></div>
 		// <div class="weather"><p>北京</p><p>白天</p><p>气温：12~13℃</p><p>微风：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一级</p><p>夜晚</p><p>气温：12~13℃</p><p>微风：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二级</p></div>
-
+		Date.prototype.getcnDay=Date.prototype.getcnDay || function(){
+			return '星期'+'日一二三四五六'.charAt(this.getDay());	
+		};
 		//创建
 		var oMask = document.getElementById('mask');
 		var oTime = oMask.querySelector('.time');
@@ -398,13 +400,18 @@ document.addEventListener('DOMContentLoaded',function(){
 		window.smartloaddata101190101 = function(json){
 			console.log(json);
 			console.log('地点：'+json.area[0][0]+'天气：'+json.weather[0].info.day);
-			oWeather.innerHTML = '<p>'+json.area[0][0]+
-				'</p><p>白天</p><p>气温：'+json.weather[0].info.day[0]+'~'+json.weather[0].info.day[2]+
-				'℃</p><p>'+json.weather[0].info.day[3]+
-				'：&nbsp;&nbsp;&nbsp;&nbsp;'+json.weather[0].info.day[4]+
-				'</p><p>晚上</p><p>气温：'+json.weather[0].info.night[0]+'~'+json.weather[0].info.night[2]+
-				'℃</p><p>'+json.weather[0].info.night[3]+
-				'：&nbsp;&nbsp;&nbsp;&nbsp;'+json.weather[0].info.night[4]
+			var oDate = new Date(json.time*1000);
+			oWeather.innerHTML = '<div>\
+    	<p style="float:left; margin-left:8%;"><span style="font-size:24px;">'+json.area[0][0]+' </span> 最高 '+json.weather[0].info.day[2]+'°<br>\
+        '+oDate.getcnDay()+'    '+(oDate.getMonth() + 1)+'月'+oDate.getDate()+'号\
+        </p>\
+        <p style="float:right; margin-right:8%; line-height:24px">白天 '+json.weather[0].info.day[0]+'~'+json.weather[0].info.day[2]+
+				'℃ '+json.weather[0].info.day[4]+
+				'<br>\
+        晚上 '+json.weather[0].info.night[0]+'~'+json.weather[0].info.night[2]+
+				'℃  '+json.weather[0].info.night[4]+'\
+        </p>\
+    </div>'
 			oHead.removeChild(oScr);
 		};
 
@@ -412,7 +419,7 @@ document.addEventListener('DOMContentLoaded',function(){
 		setTime();
 		var oMtimer=setInterval(function(){
 			setTime();
-		},1000);
+		},30000);
 
 		function setTime(){
 			var oDate = new Date();
@@ -420,7 +427,8 @@ document.addEventListener('DOMContentLoaded',function(){
 			var date = oDate.getDate() + '';
 			var hours = toDub(oDate.getHours());
 			var minius = toDub(oDate.getMinutes());
-			oTime.innerHTML = '<p>'+hours+':'+minius+'</p><p>'+month+'月'+date+'日</p>';
+			oTime.innerHTML = '<p style="font-size:90px; text-align:center;padding:30px 0 10px;">'+hours+':'+minius+'</p>'
+			
 		}
 
 
