@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+  }
+  .ddiv{
+    width: 263px;
+    height: 263px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -131px;
+    margin-top: -131px;
+    background: url(pic.jpg);
+    background-size: 100%;
+  }
+</style>
+</head>
+
+<body>
+<div class="ddiv"></div>
+<script>
+var oimg = document.querySelector('.ddiv');
+var t=0;
+var speed=25;
+var n=1;
+var max = 10000000;
+oimg.addEventListener('touchstart', function() {
+  var s=0;
+  var s2=0;
+  var timer=setInterval(function() {
+    if(t>max-1040) {
+      var a=1-n/120;
+      if(!s){s=max-t}
+      if(!s2){s2=t}
+      t =s2+s*(1-a*a*a);
+      n++;
+    } else {
+      t+=speed;
+    }
+    if(t>=max || n===120){
+      clearInterval(timer)
+      t=max
+    }
+    oimg.style.transform='rotate('+t+'deg)';
+    oimg.style.webkitTransform='rotate('+t+'deg)';
+  }, 16);
+  setTimeout(function() {
+    max=(parseInt(t/360)+8) * 360 + 45*parseInt(time(0,9));
+  }, time(500, 2500));//假设数据500-2500毫秒回来
+
+},false)
+function time(n,m) {
+  return parseInt(Math.random()*(m-n)+n); 
+}
+</script>
+</body>
+</html>
