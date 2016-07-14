@@ -5,6 +5,18 @@ body {
   font-size: 14px;
   font-family: "STHeitiSC-Light", "STHeiti", "Microsoft Yahei", Arial;
 }
+.type-icon {
+  float: left;
+  margin-right: 5px;
+  border-radius:10px;
+  padding: 0 6px;
+  background-color: #d9534f;
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  vertical-align: middle;
+
+}
 .home-header {
   color: #fff;
   height: 50px;
@@ -64,6 +76,23 @@ body {
   width: 1200px;
   margin: 0 auto;
   margin-top: 20px;
+  .article-list {
+    margin-bottom: 10px;
+  }
+  .article-title {
+    margin-bottom: 8px;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+  }
+  .article-des {
+    margin-bottom: 8px;
+  }
+  time {
+    font-size: 12px;
+    color: #888;
+  }
 }
 
 

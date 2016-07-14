@@ -1,0 +1,167 @@
+<div id='preview-contents' class='note-content'>
+                        <div id="wmd-preview" class="preview-content"></div>
+                    <div id="wmd-preview-section-149" class="wmd-preview-section preview-content">
+
+<p>在这篇文章中将分享12个JavaScript非常有用的Hack。这些Hack减少了代码的运行和优化。</p></div><div id="wmd-preview-section-26" class="wmd-preview-section preview-content">
+
+<h3 id="1使用-操作符做布尔判断">1）使用 <code>!!</code> 操作符做布尔判断</h3>
+
+<p>有时候我们检查一个变量是否存在或者它的值是否是有效，我们可以使用 <code>!!</code>  判断。它可以判断任何类型数据，出来的只有真和假。只要值不为： <code>0</code>, <code>null</code>, <code>""</code>, <code>undefined</code> or <code>NaN</code>，都会返回 <code>true</code>。下面简单看看几个列子</p>
+
+</div><div id="wmd-preview-section-27" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Account</span>(<span class="hljs-params">cash</span>) </span>{<br>  <span class="hljs-keyword">this</span>.cash = cash;<br>  <span class="hljs-keyword">this</span>.hasMoney = !!cash;<br>}<br><span class="hljs-keyword">var</span> account = <span class="hljs-keyword">new</span> Account(<span class="hljs-number">100.50</span>);<br><span class="hljs-built_in">console</span>.log(account.cash); <span class="hljs-comment">// 100.50</span><br><span class="hljs-built_in">console</span>.log(account.hasMoney); <span class="hljs-comment">// true</span><br><br><span class="hljs-keyword">var</span> emptyAccount = <span class="hljs-keyword">new</span> Account(<span class="hljs-number">0</span>);<br><span class="hljs-built_in">console</span>.log(emptyAccount.cash); <span class="hljs-comment">// 0</span><br><span class="hljs-built_in">console</span>.log(emptyAccount.hasMoney); <span class="hljs-comment">// false</span><br></code></pre>
+
+<p>在这种情况下，如果<code>account.cash</code>值大于0，那么<code>account.hasmoney</code>就是真 <br>
+<!-- more --></p>
+
+</div><div id="wmd-preview-section-28" class="wmd-preview-section preview-content">
+
+<h3 id="2使用-操作符转换成数字">2）使用 <code>+</code> 操作符转换成数字</h3>
+
+<p>它的看上去简单但功能非常强大，适用于把字符串数字变成真正的数字，但处理非数字字符串时他会返回<code>NaN</code> 看看这个例子:</p>
+
+</div><div id="wmd-preview-section-29" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toNumber</span>(<span class="hljs-params">strNumber</span>) </span>{<br>  <span class="hljs-keyword">return</span> +strNumber;<br>}<br><span class="hljs-built_in">console</span>.log(toNumber(<span class="hljs-string">"1234"</span>)); <span class="hljs-comment">// 1234</span><br><span class="hljs-built_in">console</span>.log(toNumber(<span class="hljs-string">"ACB"</span>)); <span class="hljs-comment">// NaN</span><br></code></pre>
+
+<p>这个语法和Date使用将会返回时间戳</p>
+
+</div><div id="wmd-preview-section-30" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()) <span class="hljs-comment">// 1461288164385</span><br></code></pre>
+
+</div><div id="wmd-preview-section-31" class="wmd-preview-section preview-content">
+
+<h3 id="3缩写写法">3）缩写写法</h3>
+
+<p>如果看到下面代码</p>
+
+</div><div id="wmd-preview-section-32" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="hljs sml"><span class="hljs-keyword">if</span> (conected) {<br>  login<span class="hljs-literal">()</span>;<br>}<br></code></pre>
+
+<p>你可以用 &amp;&amp; 语法把代码写成一行</p>
+
+</div><div id="wmd-preview-section-33" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="hljs cpp"><span class="hljs-function">conected &amp;&amp; <span class="hljs-title">login</span><span class="hljs-params">()</span></span>;<br></code></pre>
+
+<p>它的意思是 如果 <code>conected</code> 为真则执行后面代码</p>
+
+</div><div id="wmd-preview-section-34" class="wmd-preview-section preview-content">
+
+<h3 id="4使用-操作符处理默认值">4）使用 <code>||</code> 操作符处理默认值</h3>
+
+<p>在ES6中都有默认参数功能，为了模拟这一功能在旧浏览器可以使用<code>||</code>的默认值作为第二个参数。如果第一个参数为false第二个将被用作一个默认值。看这个例子:</p>
+
+</div><div id="wmd-preview-section-35" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">User</span>(<span class="hljs-params">name, age</span>) </span>{<br>  <span class="hljs-keyword">this</span>.name = name || <span class="hljs-string">"Oliver Queen"</span>;<br>  <span class="hljs-keyword">this</span>.age = age || <span class="hljs-number">27</span>;<br>}<br><span class="hljs-keyword">var</span> user1 = <span class="hljs-keyword">new</span> User();<br><span class="hljs-built_in">console</span>.log(user1.name); <span class="hljs-comment">// Oliver Queen</span><br><span class="hljs-built_in">console</span>.log(user1.age); <span class="hljs-comment">// 27</span><br><br><span class="hljs-keyword">var</span> user2 = <span class="hljs-keyword">new</span> User(<span class="hljs-string">"Barry Allen"</span>, <span class="hljs-number">25</span>);<br><span class="hljs-built_in">console</span>.log(user2.name); <span class="hljs-comment">// Barry Allen</span><br><span class="hljs-built_in">console</span>.log(user2.age); <span class="hljs-comment">// 25</span><br></code></pre>
+
+</div><div id="wmd-preview-section-36" class="wmd-preview-section preview-content">
+
+<h3 id="5在循环里缓存arraylength">5）在循环里缓存<code>array.length</code></h3>
+
+<p>这个技巧非常简单,在大数据循环上性能有明显提升。基本上，几乎每个人都写这种for遍历数组：</p>
+
+</div><div id="wmd-preview-section-37" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; array.length; i++) {<br>  <span class="hljs-built_in">console</span>.log(array[i]);<br>}<br></code></pre>
+
+<p>如果您使用较小的数组——这很好,但是如果你处理大型阵列,这段代码在每次循环时都会重新计算数组的大小,这将导致一些延误。为了避免它,您可以缓存数组的长度。每次循环就不会查询数组长度了</p>
+
+</div><div id="wmd-preview-section-38" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">var</span> length = array.length;<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; length; i++) {<br>  <span class="hljs-built_in">console</span>.log(array[i]);<br>}<br></code></pre>
+
+<p>也可以使用缩写写法</p>
+
+</div><div id="wmd-preview-section-39" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, length = array.length; i &lt; length; i++) {<br>  <span class="hljs-built_in">console</span>.log(array[i]);<br>}<br></code></pre>
+
+</div><div id="wmd-preview-section-40" class="wmd-preview-section preview-content">
+
+<h3 id="6对象属性的检测">6）对象属性的检测</h3>
+
+<p>当你需要检查一些属性是否存在，这个技巧是非常有用的。它避免了运行时一些未定义的函数或属性的报错，当你想使用<code>document.querySelector()</code>获取元素时在低版本浏览中会报出该函数不存在的错误，所有检查属性和方法是否存在可以看看这个列子：</p>
+
+</div><div id="wmd-preview-section-41" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">if</span> (<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) {<br>  <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#id"</span>);<br>} <span class="hljs-keyword">else</span> {<br>  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"id"</span>);<br>}<br></code></pre>
+
+<p>在这种情况下，如果<code>document</code>没有<code>querySelector</code>函数对象，我们可以使用<code>document.getElementById()</code>作为后备。</p>
+
+</div><div id="wmd-preview-section-42" class="wmd-preview-section preview-content">
+
+<h3 id="7获取数组最后的元素">7）获取数组最后的元素</h3>
+
+<p>这个<code>Array.prototype.slice(begin, end)</code>你可以设置截取开始和结速的位置。但如果你不设置结束的时，这个功能会自动截取后面全部的值。 <br>
+我认为很少有人知道，这个函数可以接受<code>负值</code>，如果你设定一个负的数就可以获取数组中获取最后的元素：</p>
+
+</div><div id="wmd-preview-section-43" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">var</span> array = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br><span class="hljs-built_in">console</span>.log(array.slice(-<span class="hljs-number">1</span>)); <span class="hljs-comment">// [6]</span><br><span class="hljs-built_in">console</span>.log(array.slice(-<span class="hljs-number">2</span>)); <span class="hljs-comment">// [5,6]</span><br><span class="hljs-built_in">console</span>.log(array.slice(-<span class="hljs-number">3</span>)); <span class="hljs-comment">// [4,5,6]</span><br></code></pre>
+
+</div><div id="wmd-preview-section-44" class="wmd-preview-section preview-content">
+
+<h3 id="8数组的截断">8）数组的截断</h3>
+
+<p>这种技术可以锁定数组的长度，这是设置数组元素非常有用。例如，如果你有一个具有10个元素的数组，但你想得到的只有前五个元素，你可以设置<code>array.length = 5</code>这样就可以了，看这个例子：</p>
+
+</div><div id="wmd-preview-section-45" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">var</span> array = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br><span class="hljs-built_in">console</span>.log(array.length); <span class="hljs-comment">// 6</span><br>array.length = <span class="hljs-number">3</span>;<br><span class="hljs-built_in">console</span>.log(array.length); <span class="hljs-comment">// 3</span><br><span class="hljs-built_in">console</span>.log(array); <span class="hljs-comment">// [1,2,3]</span><br></code></pre>
+
+</div><div id="wmd-preview-section-46" class="wmd-preview-section preview-content">
+
+<h3 id="9替换所有">9）替换所有</h3>
+
+<p>这个<code>String.replace()</code>功能允许使用字符串和正则表达式替换字符串，本身这个函数只替换匹配到的第一个。但你可以模拟<code>replaceAll（）</code>函数使用<code>/g</code>在一个正则表达式的结尾处：</p>
+
+</div><div id="wmd-preview-section-47" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">var</span> string = <span class="hljs-string">"john john"</span>;<br><span class="hljs-built_in">console</span>.log(string.replace(<span class="hljs-regexp">/hn/</span>, <span class="hljs-string">"ana"</span>)); <span class="hljs-comment">// "joana john"</span><br><span class="hljs-built_in">console</span>.log(string.replace(<span class="hljs-regexp">/hn/g</span>, <span class="hljs-string">"ana"</span>)); <span class="hljs-comment">// "joana joana"</span><br></code></pre>
+
+</div><div id="wmd-preview-section-48" class="wmd-preview-section preview-content">
+
+<h3 id="10合并数组">10）合并数组</h3>
+
+<p>如果你需要合并两个数组可以使用<code>Array.concat()</code>功能：</p>
+
+</div><div id="wmd-preview-section-49" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">var</span> array1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br><span class="hljs-keyword">var</span> array2 = [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br><span class="hljs-built_in">console</span>.log(array1.concat(array2)); <span class="hljs-comment">// [1,2,3,4,5,6];</span><br></code></pre>
+
+<p>然而，这个功能并不适合合并大数组，因为它会创建一个新数组占用很多内存。在这种情况下，你可以使用<code>Array.push.apply(arr1, arr2)</code>而不是创建一个新数组–将合并在第一个数组减少内存使用的：</p>
+
+</div><div id="wmd-preview-section-50" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">var</span> array1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br><span class="hljs-keyword">var</span> array2 = [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];<br><span class="hljs-built_in">console</span>.log(array1.push.apply(array1, array2)); <span class="hljs-comment">// [1,2,3,4,5,6];</span><br></code></pre>
+
+</div><div id="wmd-preview-section-51" class="wmd-preview-section preview-content">
+
+<h3 id="11将元素节点转换成数组">11）将元素节点转换成数组</h3>
+
+<p>如果你运行<code>document.querySelectorAll("p")</code>函数，它会返回一个DOM元素数组，但这个对象没有数组的原生功能，如：<code>sort()</code>,<code>reduce()</code>,<code>map()</code>,<code>filter()</code>。要想将这个DOM元素数组有原生数组的功能可以使用 [].slice.call(elements):</p>
+
+</div><div id="wmd-preview-section-52" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">var</span> elements = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">"p"</span>); <span class="hljs-comment">// NodeList</span><br><span class="hljs-keyword">var</span> arrayElements = [].slice.call(elements); <span class="hljs-comment">// Now the NodeList is an array</span><br><span class="hljs-keyword">var</span> arrayElements = <span class="hljs-built_in">Array</span>.from(elements); <span class="hljs-comment">// This is another way of converting NodeList to Array</span><br></code></pre>
+
+</div><div id="wmd-preview-section-53" class="wmd-preview-section preview-content">
+
+<h3 id="12数组元素的随机排序">12）数组元素的随机排序</h3>
+
+<p>把数组中的元素混无须使用任何外部库像<code>lodash</code>，只要运行这个即可：</p>
+
+</div><div id="wmd-preview-section-54" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><span class="hljs-keyword">var</span> list = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br><span class="hljs-built_in">console</span>.log(list.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">Math</span>.random() - <span class="hljs-number">0.5</span> })); <span class="hljs-comment">// [2,1,3]</span><br></code></pre>
+
+</div><div id="wmd-preview-section-55" class="wmd-preview-section preview-content">
+
+<h3 id="结论">结论</h3>
+
+<p>现在你学到了一些有用的JS Hack主要用来减少了JavaScript代码，这些技巧许多流行的js框架都在使用<code>lodash</code>，<code>Underscore.js</code>，<code>strings.js</code>，等等。如果你想走得更深、更了解优化你的代码你可以关注我们。我希望你喜欢这篇文章，如果你知道其他JS Hack，请留下您的评论文章！</p></div><div id="wmd-preview-section-footnotes" class="preview-content"></div></div>
