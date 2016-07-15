@@ -1,7 +1,7 @@
 var detail = getQueryString('detail');
 $.ajax({
   type:'GET',
-  url:'../assets/data/' + detail + '.data',
+  url:'assets/data/' + detail + '.data',
   dataType:'text', 
   success:function(data) {
     $('.detail').html(data);
