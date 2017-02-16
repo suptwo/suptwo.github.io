@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded',function(){
 				{
 					id: 'weixin',
 					name: '加我好友', //二维码
-					img: 'img/erweima.png'
+					img: 'img/weixin.jpg'
 				},
 				{
 					id: 'contact',
